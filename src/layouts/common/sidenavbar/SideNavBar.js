@@ -20,8 +20,10 @@ const buttons = [
 export default function SideNavBar() {
   return (
     <div>
-      <Logo />
-      <div>
+      <div style={{ paddingTop: 10 }}>
+        <Logo />
+      </div>
+      <div style={{ paddingTop: 40, paddingBottom: 190 }}>
         {buttons.map((val, key) => {
           return (
             <div key={key} style={{ padding: 5 }}>

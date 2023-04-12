@@ -7,7 +7,7 @@ export default function NavButton({ info }) {
       <Button
         startIcon={info.image}
         sx={{
-          width: "80%",
+          width: "90%",
           textTransform: "none",
           color: "#666666",
           padding: 1,
