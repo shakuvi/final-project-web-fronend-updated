@@ -12,9 +12,8 @@ export default function LogInLayout() {
         width: "30%",
       }}
     >
-      <div style={{ paddingTop: 10 }}>
-        <Typography>Log In</Typography>
-      </div>
+      <Typography>Log In</Typography>
+
       <div style={{ paddingTop: 10 }}>
         <InputBoxWithTopLabel
           info={{ label: "Email", place: "Enter your user name" }}
