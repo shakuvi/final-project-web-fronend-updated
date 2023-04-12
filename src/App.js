@@ -5,6 +5,8 @@ import NoPage from "./pages/NoPage";
 import HomePage from "./pages/HomePage";
 import ReviewPage from "./pages/ReviewPage";
 import OrderPage from "./pages/OrderPage";
+import UserPage from "./pages/UserPage";
+import FoodPage from "./pages/FoodPage";
 
 function App() {
   return (
@@ -15,7 +17,8 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/review" element={<ReviewPage />} />
           <Route path="/order" element={<OrderPage />} />
-          {/* <Route path="/payment" element={<PaymentDashboard />} /> */}
+          <Route path="/user" element={<UserPage />} />
+          <Route path="/food" element={<FoodPage />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

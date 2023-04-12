@@ -11,6 +11,7 @@ export default function NavButton({ info }) {
           textTransform: "none",
           color: "#666666",
           padding: 1,
+          textAlign: "left",
         }}
       >
         {info.title}
