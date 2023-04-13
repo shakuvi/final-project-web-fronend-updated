@@ -12,6 +12,8 @@ export default function NavButton({ info }) {
           color: "#666666",
           padding: 1,
           textAlign: "left",
+          justifyContent: "left",
+          paddingLeft: "50px",
         }}
       >
         {info.title}
