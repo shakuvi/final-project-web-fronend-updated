@@ -1,4 +1,6 @@
 import React from "react";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import { IconButton } from "@mui/material";
 
 export default function CatergoryEditItem() {
   return (
@@ -8,15 +10,18 @@ export default function CatergoryEditItem() {
         alignItems: "center",
         justifyContent: "center",
         right: 10,
-        backgroundColor: "red",
         width: "40px",
         height: "40px",
         position: "absolute",
-        borderRadius: "20px",
+        borderRadius: "50px",
         bottom: 5,
+        border: "1px solid black",
+        backgroundColor: "#FFFFFF",
       }}
     >
-      X
+      <IconButton aria-label="add to shopping cart">
+        <EditOutlinedIcon />
+      </IconButton>
     </div>
   );
 }

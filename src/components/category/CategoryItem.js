@@ -1,6 +1,7 @@
 import React from "react";
+import CatergoryEditItem from "./CatergoryEditItem";
 
-export default function CategoryItem() {
+export default function CategoryItem({ isEditVisible }) {
   return (
     <div
       style={{
@@ -32,6 +33,7 @@ export default function CategoryItem() {
           src="https://img.freepik.com/premium-vector/chef-icon-with-tray-food-hand_602006-191.jpg?w=2000"
         />
       </div>
+      {isEditVisible ? <CatergoryEditItem /> : ""}
     </div>
   );
 }
