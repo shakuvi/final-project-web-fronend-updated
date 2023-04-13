@@ -7,6 +7,7 @@ import ReviewPage from "./pages/ReviewPage";
 import OrderPage from "./pages/OrderPage";
 import UserPage from "./pages/UserPage";
 import FoodPage from "./pages/FoodPage";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/order" element={<OrderPage />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/food" element={<FoodPage />} />
+          <Route path="/category" element={<CategoryPage />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

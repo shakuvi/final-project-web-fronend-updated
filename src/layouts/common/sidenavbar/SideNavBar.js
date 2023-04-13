@@ -28,8 +28,7 @@ export default function SideNavBar() {
           return (
             <div key={key} style={{ padding: 5 }}>
               <NavLink style={{ textDecoration: "none" }} to={`/${val.route}`}>
-                <NavButton info={val} /> 
-                
+                <NavButton info={val} />
               </NavLink>
             </div>
           );
