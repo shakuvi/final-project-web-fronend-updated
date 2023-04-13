@@ -1,10 +1,13 @@
 import React from "react";
 import CommonLayout from "../layouts/common/CommonLayout";
+import CatergoryLayout from "../layouts/catergory/CatergoryLayout";
 
 export default function CategoryPage() {
   return (
     <div>
-      <CommonLayout></CommonLayout>
+      <CommonLayout>
+        <CatergoryLayout />
+      </CommonLayout>
     </div>
   );
 }
