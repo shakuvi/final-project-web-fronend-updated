@@ -1,5 +1,10 @@
 import React from "react";
+import HomeSubHeader from "../../common/homelayout/HomeSubHeader";
 
 export default function HomeRecentReviews() {
-  return <div>HomeRecentReviews</div>;
+  return (
+    <div>
+      <HomeSubHeader info={{ name: "Recent Reviews" }} />
+    </div>
+  );
 }

@@ -1,5 +1,10 @@
 import React from "react";
+import HomeSubHeader from "../../common/homelayout/HomeSubHeader";
 
 export default function HomeCategory() {
-  return <div>HomeCategory</div>;
+  return (
+    <div>
+      <HomeSubHeader info={{ name: "Category" }} />
+    </div>
+  );
 }
