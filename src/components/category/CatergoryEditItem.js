@@ -1,8 +1,18 @@
 import React from "react";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import { IconButton } from "@mui/material";
+import { Dialog, IconButton } from "@mui/material";
+import CatergoryEditLayout from "../../layouts/catergory/catergorylayout/CatergoryEditLayout";
 
 export default function CatergoryEditItem() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div
       style={{
@@ -19,9 +29,25 @@ export default function CatergoryEditItem() {
         backgroundColor: "#FFFFFF",
       }}
     >
-      <IconButton aria-label="add to shopping cart">
+      <IconButton aria-label="add to shopping cart" onClick={handleClickOpen}>
         <EditOutlinedIcon />
       </IconButton>
+
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          style: {
+            width: "40%",
+            height: "60%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          },
+        }}
+      >
+        <CatergoryEditLayout />
+      </Dialog>
     </div>
   );
 }
