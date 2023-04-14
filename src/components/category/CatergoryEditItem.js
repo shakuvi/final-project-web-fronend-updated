@@ -29,10 +29,9 @@ export default function CatergoryEditItem() {
         backgroundColor: "#FFFFFF",
       }}
     >
-      <IconButton aria-label="add to shopping cart" onClick={handleClickOpen}>
+      <IconButton onClick={handleClickOpen}>
         <EditOutlinedIcon />
       </IconButton>
-
       <Dialog
         open={open}
         onClose={handleClose}

@@ -1,9 +1,9 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-export default function PopUpDialogActionButton() {
+export default function TopBarButton() {
   return (
-    <div style={{ paddingTop: 20 }}>
+    <div>
       <Button
         variant="contained"
         sx={{
@@ -12,7 +12,7 @@ export default function PopUpDialogActionButton() {
         }}
         style={{ background: "linear-gradient(to right, #FE6329, #FDBB29)" }}
       >
-        Save
+        Add
       </Button>
     </div>
   );

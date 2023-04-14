@@ -1,8 +1,9 @@
 import { Avatar, Grid, Typography } from "@mui/material";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
 import React from "react";
+import TopBarButton from "../../../components/common/TopBarButton";
 
-export default function HomeHeaderWithUserDetails({ info }) {
+export default function HomeHeaderWithUserDetails({ info, isEditVisible }) {
   return (
     <Grid container alignItems="center" pl={1} pt={1}>
       <Grid item xs={6}>
@@ -10,6 +11,9 @@ export default function HomeHeaderWithUserDetails({ info }) {
       </Grid>
       <Grid item xs={6}>
         <Grid container alignItems="center" justifyContent="flex-end">
+          <Grid item pr={2}>
+            {isEditVisible ? <TopBarButton /> : ""}
+          </Grid>
           <Grid item xs={1}>
             <CircleNotificationsIcon fontSize="large" />
           </Grid>
