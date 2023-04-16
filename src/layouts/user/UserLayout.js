@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDetails";
 import UserPopUpDialog from "./userlayout/UserPopUpDialog";
-import TopBarButton from "../../components/common/TopBarButton";
 
 const rows = [
   { id: 1, name: "John", age: 25 },
@@ -34,8 +33,9 @@ export default function UserLayout() {
       style={{ backgroundColor: "#FFF2F2", height: "100vh", textAlign: "left" }}
     >
       <HomeHeaderWithUserDetails
-        info={{ label: "Users" }}
-        isEditVisible={<TopBarButton />}
+        label="Users"
+        buttonName="Add New User"
+        isEditVisible
       />
       <div style={{ paddingLeft: 10, paddingRight: 10 }}>
         <Table>

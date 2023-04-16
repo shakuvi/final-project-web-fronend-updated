@@ -9,9 +9,9 @@ import HomeHeaderWithUserDetails from "../../common/homelayout/HomeHeaderWithUse
 export default function HomeOverview() {
   return (
     <div>
-      <HomeHeaderWithUserDetails info={{ label: "Overview" }} />
+      <HomeHeaderWithUserDetails label="Food" />
       <Grid container justifyContent="space-evenly" pt={3}>
-        <Grid item xs="3">
+        <Grid item xs={3}>
           <StatisficationItem
             info={{
               label: "Food Delovered",
@@ -20,7 +20,7 @@ export default function HomeOverview() {
             }}
           />
         </Grid>
-        <Grid item xs="3">
+        <Grid item xs={3}>
           <StatisficationItem
             info={{
               label: "Satisfaction Rating",
@@ -29,7 +29,7 @@ export default function HomeOverview() {
             }}
           />
         </Grid>
-        <Grid item xs="3">
+        <Grid item xs={3}>
           <StatisficationItem
             info={{
               label: "Balance",

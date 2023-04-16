@@ -3,16 +3,20 @@ import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
 import React from "react";
 import TopBarButton from "../../../components/common/TopBarButton";
 
-export default function HomeHeaderWithUserDetails({ info, isEditVisible }) {
+export default function HomeHeaderWithUserDetails({
+  label,
+  buttonName,
+  isEditVisible,
+}) {
   return (
     <Grid container alignItems="center" pl={1} pt={1}>
       <Grid item xs={6}>
-        <Typography sx={{ color: "#FD5C25" }}>{info.label}</Typography>
+        <Typography sx={{ color: "#FD5C25" }}>{label}</Typography>
       </Grid>
       <Grid item xs={6}>
         <Grid container alignItems="center" justifyContent="flex-end">
           <Grid item pr={2}>
-            {isEditVisible ? <TopBarButton /> : ""}
+            {isEditVisible ? <TopBarButton buttonName={buttonName} /> : ""}
           </Grid>
           <Grid item xs={1}>
             <CircleNotificationsIcon fontSize="large" />

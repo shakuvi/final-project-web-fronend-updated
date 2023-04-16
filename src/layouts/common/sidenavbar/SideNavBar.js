@@ -28,7 +28,9 @@ export default function SideNavBar() {
           return (
             <div key={key} style={{ padding: 5 }}>
               <NavLink style={{ textDecoration: "none" }} to={`/${val.route}`}>
-                <NavButton info={val} />
+                {({ isActive, isPending }) => (
+                  <NavButton title={val.title} isActive={isActive} />
+                )}
               </NavLink>
             </div>
           );

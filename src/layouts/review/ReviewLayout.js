@@ -6,7 +6,7 @@ export default function ReviewLayout() {
     <div
       style={{ backgroundColor: "#FFF2F2", height: "100vh", textAlign: "left" }}
     >
-      <HomeHeaderWithUserDetails info={{ label: "Review" }} />
+      <HomeHeaderWithUserDetails label="Review" />
     </div>
   );
 }

@@ -32,7 +32,7 @@ export default function OrderLayout() {
     <div
       style={{ backgroundColor: "#FFF2F2", height: "100vh", textAlign: "left" }}
     >
-      <HomeHeaderWithUserDetails info={{ label: "Order" }} />
+      <HomeHeaderWithUserDetails label="Order" />
       <div style={{ paddingLeft: 10, paddingRight: 10 }}>
         <Table>
           <TableHead>
