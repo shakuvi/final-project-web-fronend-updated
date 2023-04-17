@@ -1,17 +1,25 @@
 import React from "react";
 import CategoryItem from "../../components/category/CategoryItem";
 import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDetails";
-import CatergoryEditItem from "../../components/category/CatergoryEditItem";
-import AddIcon from "@mui/icons-material/Add";
+import { useSelector } from "react-redux";
+import { Grid } from "@mui/material";
 
 export default function CatergoryLayout() {
+  const { allCatergoryList } = useSelector((store) => store.catergoryReducer);
   return (
     <div
       style={{ backgroundColor: "#FFF2F2", height: "100vh", textAlign: "left" }}
     >
-      <HomeHeaderWithUserDetails info={{ label: "Catergory" }} />
-      <CategoryItem isEditVisible={<CatergoryEditItem />} />
-      <CategoryItem info={<AddIcon />} />
+      <HomeHeaderWithUserDetails label="Catergory" />
+      <Grid container>
+        {allCatergoryList.map((val, key) => {
+          return (
+            <Grid item xs={2} key={key}>
+              <CategoryItem info={val} isEditVisible />
+            </Grid>
+          );
+        })}
+      </Grid>
     </div>
   );
 }

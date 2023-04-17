@@ -1,12 +1,13 @@
 import React from "react";
 import CatergoryEditItem from "./CatergoryEditItem";
+import { Typography } from "@mui/material";
 
-export default function CategoryItem({ isEditVisible }) {
+export default function CategoryItem({ info, isEditVisible }) {
   return (
     <div
       style={{
-        height: "175px",
-        width: "175px",
+        height: "200px",
+        width: "200px",
         display: "flex",
         justifyContent: "center",
         alignContent: "center",
@@ -17,9 +18,10 @@ export default function CategoryItem({ isEditVisible }) {
       <div
         style={{
           backgroundColor: "#FFFFFF",
-          width: "125px",
-          height: "125px",
+          width: "150px",
+          height: "150px",
           display: "flex",
+          flexDirection: "column",
           alignContent: "center",
           alignItems: "center",
           justifyContent: "center",
@@ -32,6 +34,7 @@ export default function CategoryItem({ isEditVisible }) {
           width="100px"
           src="https://img.freepik.com/premium-vector/chef-icon-with-tray-food-hand_602006-191.jpg?w=2000"
         />
+        <Typography>{info.name}</Typography>
       </div>
       {isEditVisible ? <CatergoryEditItem /> : ""}
     </div>
