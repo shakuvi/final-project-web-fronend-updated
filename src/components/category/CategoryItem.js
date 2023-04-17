@@ -34,7 +34,7 @@ export default function CategoryItem({ info, isEditVisible }) {
           width="100px"
           src="https://img.freepik.com/premium-vector/chef-icon-with-tray-food-hand_602006-191.jpg?w=2000"
         />
-        <Typography>{info.name}</Typography>
+        <Typography>{info}</Typography>
       </div>
       {isEditVisible ? <CatergoryEditItem /> : ""}
     </div>

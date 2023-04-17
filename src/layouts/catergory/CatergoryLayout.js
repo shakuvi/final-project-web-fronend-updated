@@ -15,7 +15,7 @@ export default function CatergoryLayout() {
         {allCatergoryList.map((val, key) => {
           return (
             <Grid item xs={2} key={key}>
-              <CategoryItem info={val} isEditVisible />
+              <CategoryItem info={val.name} isEditVisible />
             </Grid>
           );
         })}
