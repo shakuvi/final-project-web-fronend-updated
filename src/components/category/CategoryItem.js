@@ -2,7 +2,7 @@ import React from "react";
 import CatergoryEditItem from "./CatergoryEditItem";
 import { Typography } from "@mui/material";
 
-export default function CategoryItem({ info, isEditVisible }) {
+export default function CategoryItem({ name, isEditVisible, image }) {
   return (
     <div
       style={{
@@ -34,7 +34,7 @@ export default function CategoryItem({ info, isEditVisible }) {
           width="100px"
           src="https://img.freepik.com/premium-vector/chef-icon-with-tray-food-hand_602006-191.jpg?w=2000"
         />
-        <Typography>{info}</Typography>
+        <Typography>{name}</Typography>
       </div>
       {isEditVisible ? <CatergoryEditItem /> : ""}
     </div>

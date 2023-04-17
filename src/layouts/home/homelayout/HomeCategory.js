@@ -11,7 +11,7 @@ export default function HomeCategory({ info }) {
         {info.slice(0, 6).map((val, key) => {
           return (
             <Grid item xs={2} key={key}>
-              <CategoryItem />
+              <CategoryItem name={val.name} image={val.image} />
             </Grid>
           );
         })}
