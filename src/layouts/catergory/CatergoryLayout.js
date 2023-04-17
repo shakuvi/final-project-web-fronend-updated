@@ -3,7 +3,7 @@ import CategoryItem from "../../components/category/CategoryItem";
 import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDetails";
 import { Grid } from "@mui/material";
 
-export default function CatergoryLayout({ info }) {
+export default function CatergoryLayout({ info, loading }) {
   return (
     <div
       style={{ backgroundColor: "#FFF2F2", height: "100vh", textAlign: "left" }}
@@ -13,7 +13,7 @@ export default function CatergoryLayout({ info }) {
         {info.map((val, key) => {
           return (
             <Grid item xs={2} key={key}>
-              <CategoryItem name={val.name} isEditVisible />
+              <CategoryItem name={val.name} image={val.image} isEditVisible />
             </Grid>
           );
         })}

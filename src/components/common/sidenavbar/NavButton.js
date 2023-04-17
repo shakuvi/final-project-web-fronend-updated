@@ -8,12 +8,13 @@ export default function NavButton({ title, image, isActive }) {
       sx={{
         width: "90%",
         textTransform: "none",
-        color: "#666666",
         backgroundColor: isActive ? "#FE6329" : "",
+        color: isActive ? "#FFFFFF" : "#666666",
         padding: 1,
         textAlign: "left",
         justifyContent: "left",
         paddingLeft: "50px",
+        pointerEvents: isActive ? "none" : "auto",
       }}
     >
       {title}
