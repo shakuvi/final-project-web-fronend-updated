@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 export default function HomeCategory({ info }) {
   return (
     <div>
-      <HomeSubHeader info={{ name: "Category", route: "category" }} />
+      <HomeSubHeader info={{ name: "Category", route: "home/category" }} />
       <Grid container>
         {info.slice(0, 6).map((val, key) => {
           return (

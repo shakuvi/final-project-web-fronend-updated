@@ -2,8 +2,33 @@ import { Typography } from "@mui/material";
 import React from "react";
 import CatergoryInputBoxWithLabel from "../../../components/category/CatergoryInputBoxWithLabel";
 import PopUpDialogActionButton from "../../../components/common/PopUpDialogActionButton";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setUserSelectedCatergory,
+  updateCatergory,
+} from "../../../store/actions/categoryAction";
 
 export default function CatergoryEditLayout() {
+  const dispatch = useDispatch();
+
+  const { userSelectedCatergory } = useSelector(
+    (store) => store.catergoryReducer
+  );
+
+  const handlecatergoryChange = (value, name) => {
+    dispatch(
+      setUserSelectedCatergory({ ...userSelectedCatergory, [name]: value })
+    );
+    console.log(name);
+    console.log(value);
+  };
+
+  const handleClick = () => {
+    console.log("work");
+    dispatch(updateCatergory(userSelectedCatergory));
+  };
+
+  console.log(userSelectedCatergory);
   return (
     <div
       style={{
@@ -22,8 +47,17 @@ export default function CatergoryEditLayout() {
       <div style={{ paddingTop: 10 }}>
         <Typography>Upload Photo</Typography>
       </div>
-      <CatergoryInputBoxWithLabel />
-      <PopUpDialogActionButton />
+      <CatergoryInputBoxWithLabel
+        value={userSelectedCatergory.name}
+        name={"name"}
+        handleChange={handlecatergoryChange}
+      />
+      <CatergoryInputBoxWithLabel
+        value={userSelectedCatergory.description}
+        name={"description"}
+        handleChange={handlecatergoryChange}
+      />
+      <PopUpDialogActionButton handleClick={handleClick} />
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-export default function PopUpDialogActionButton() {
+export default function PopUpDialogActionButton({ handleClick }) {
   return (
     <div style={{ paddingTop: 20 }}>
       <Button
+        onClick={handleClick}
         variant="contained"
         sx={{
           textTransform: "none",

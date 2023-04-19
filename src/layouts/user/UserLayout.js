@@ -46,10 +46,6 @@ export default function UserLayout() {
               <TableCell style={{ fontWeight: "bold" }}>
                 Date of birth
               </TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>Order Type</TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>
-                Mobile Number
-              </TableCell>
               <TableCell style={{ fontWeight: "bold" }}>Action</TableCell>
             </TableRow>
           </TableHead>
@@ -70,8 +66,6 @@ export default function UserLayout() {
                 <TableCell>{val.name}</TableCell>
                 <TableCell>{val.name}</TableCell>
                 <TableCell>{val.name}</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Name</TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -1,11 +1,17 @@
 import { TextField, Typography } from "@mui/material";
 import React from "react";
 
-export default function CatergoryInputBoxWithLabel() {
+export default function CatergoryInputBoxWithLabel({
+  name,
+  value,
+  handleChange,
+}) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
       <Typography>Catergory</Typography>
       <TextField
+        value={value}
+        onChange={(e) => handleChange(e.target.value, name)}
         sx={{
           width: "400px",
           border: "none",

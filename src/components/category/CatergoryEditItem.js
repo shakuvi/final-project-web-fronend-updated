@@ -3,14 +3,19 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Dialog, IconButton } from "@mui/material";
 import CatergoryEditLayout from "../../layouts/catergory/catergorylayout/CatergoryEditLayout";
 
-export default function CatergoryEditItem() {
+export default function CatergoryEditItem({
+  handleEdit,
+  handleClearLoadingStatus,
+}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
+    handleEdit();
     setOpen(true);
   };
 
   const handleClose = () => {
+    handleClearLoadingStatus();
     setOpen(false);
   };
   return (

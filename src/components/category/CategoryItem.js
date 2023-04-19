@@ -2,7 +2,13 @@ import React from "react";
 import CatergoryEditItem from "./CatergoryEditItem";
 import { Typography } from "@mui/material";
 
-export default function CategoryItem({ name, isEditVisible, image }) {
+export default function CategoryItem({
+  name,
+  isEditVisible,
+  image,
+  handleEdit,
+  handleClearLoadingStatus,
+}) {
   return (
     <div
       style={{
@@ -36,7 +42,14 @@ export default function CategoryItem({ name, isEditVisible, image }) {
         />
         <Typography>{name}</Typography>
       </div>
-      {isEditVisible ? <CatergoryEditItem /> : ""}
+      {isEditVisible ? (
+        <CatergoryEditItem
+          handleEdit={handleEdit}
+          handleClearLoadingStatus={handleClearLoadingStatus}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
