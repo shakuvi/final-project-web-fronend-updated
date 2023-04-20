@@ -4,6 +4,8 @@ export const GET_ALL_ORDERS_LOADING = "GET_ALL_ORDERS_LOADING";
 export const GET_ALL_ORDERS_SUCESS = "GET_ALL_ORDERS_SUCESS";
 export const GET_ALL_ORDERS_FAIL = "GET_ALL_ORDERS_FAIL";
 
+export const SET_USER_SELECTED_ORDER = "SET_USER_SELECTED_ORDER";
+
 export const getAllOrders = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_ORDERS_LOADING });
@@ -20,5 +22,11 @@ export const getAllOrders = () => {
         console.log(e);
         dispatch({ type: GET_ALL_ORDERS_FAIL });
       });
+  };
+};
+
+export const setUserSelectedOrder = (order) => {
+  return (dispatch) => {
+    dispatch({ type: SET_USER_SELECTED_ORDER, payload: order });
   };
 };

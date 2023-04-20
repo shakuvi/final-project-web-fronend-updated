@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import CommonLayout from "../layouts/common/CommonLayout";
 import OrderLayout from "../layouts/order/OrderLayout";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllOrders } from "../store/actions/orderAction";
+import {
+  getAllOrders,
+  setUserSelectedOrder,
+} from "../store/actions/orderAction";
 
 export default function OrderPage() {
   const dispatch = useDispatch();
@@ -11,11 +14,14 @@ export default function OrderPage() {
     dispatch(getAllOrders());
   }, [dispatch]);
 
+  const handleorderdata = (order) => {
+    console.log(order);
+    dispatch(setUserSelectedOrder(order));
+  };
+
   const { getAllOrderListLoading: loadingStatus, allOrderList } = useSelector(
     (store) => store.orderReducer
   );
-
-  console.log(allOrderList);
 
   return (
     <div>
@@ -24,7 +30,10 @@ export default function OrderPage() {
           <div>Loading</div>
         ) : loadingStatus === "sucess" ? (
           allOrderList.length > 0 ? (
-            <OrderLayout info={allOrderList} />
+            <OrderLayout
+              info={allOrderList}
+              handleorderdata={handleorderdata}
+            />
           ) : (
             <div>No data</div>
           )

@@ -3,6 +3,7 @@ import * as Actions from "../actions/orderAction";
 const inisialState = {
   getAllOrderListLoading: "notStarted",
   allOrderList: [],
+  userSelectedOrder: {},
 };
 
 const orderReducer = (state = inisialState, action) => {
@@ -23,6 +24,9 @@ const orderReducer = (state = inisialState, action) => {
         getAllOrderListLoading: "fail",
         allOrderList: [],
       };
+
+    case Actions.SET_USER_SELECTED_ORDER:
+      return { ...state, userSelectedOrder: action.payload };
 
     default:
       return state;

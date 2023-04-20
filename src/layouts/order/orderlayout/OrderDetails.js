@@ -2,23 +2,38 @@ import { Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import PopUpDialogActionButton from "../../../components/common/PopUpDialogActionButton";
 import OrderStatusButton from "../../../components/order/OrderStatusButton";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function OrderDetails() {
+  const dispatch = useDispatch();
+
+  const { userSelectedOrder } = useSelector((store) => store.orderReducer);
+  console.log(userSelectedOrder);
   return (
-    <div style={{ textAlign: "center" }}>
-      <Typography>Order Details</Typography>
-      <Divider />
+    <div
+      style={{
+        textAlign: "center",
+      }}
+    >
+      <Typography sx={{ color: "#FD5C25", fontSize: 30 }}>
+        Order Details
+      </Typography>
+      <div style={{ marginLeft: "auto", marginRight: "auto", width: "90%" }}>
+        <Divider />
+      </div>
       <Grid
         container
         justifyContent="space-between"
         sx={{ marginLeft: "auto", marginRight: "auto", width: "60%" }}
         pt={2}
       >
-        <Grid item>Name</Grid>
-        <Grid item>Date</Grid>
-        <Grid item>Time</Grid>
-        <Grid item>ordertype</Grid>
-        <Grid item>Table number</Grid>
+        <Grid item>{userSelectedOrder.orderedBy.userName}</Grid>
+        <Grid item>{userSelectedOrder.createDate}</Grid>
+        <Grid item>{userSelectedOrder.createTime}</Grid>
+        <Grid item>{userSelectedOrder.orderType.orderType}</Grid>
+        {userSelectedOrder.orderType.orderType === "dinein" ? (
+          <Grid item>{userSelectedOrder.table.tableName}</Grid>
+        ) : null}
       </Grid>
       <Grid
         container
@@ -48,7 +63,7 @@ export default function OrderDetails() {
         <Grid item>
           <OrderStatusButton
             backgroundColor="#FBCAFF"
-            color="#216708"
+            color="#91109C"
             name="Pending"
           />
         </Grid>

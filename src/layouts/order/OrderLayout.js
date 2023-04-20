@@ -11,7 +11,7 @@ import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDe
 import OrderDetails from "./orderlayout/OrderDetails";
 import OrderStatusButton from "../../components/order/OrderStatusButton";
 
-export default function OrderLayout({ info: rows }) {
+export default function OrderLayout({ info: rows, handleorderdata }) {
   const [selectedRow, setSelectedRow] = React.useState(null);
 
   const [open, setOpen] = React.useState(false);
@@ -48,6 +48,7 @@ export default function OrderLayout({ info: rows }) {
                 onClick={() => {
                   setSelectedRow(val);
                   handleClickOpen();
+                  handleorderdata(val);
                 }}
                 style={
                   selectedRow === val
@@ -84,7 +85,7 @@ export default function OrderLayout({ info: rows }) {
                   {val.status === "Pending" ? (
                     <OrderStatusButton
                       backgroundColor="#FBCAFF"
-                      color="#216708"
+                      color="#91109C"
                       name="Pending"
                     />
                   ) : val.status === "Delivered" ? (
