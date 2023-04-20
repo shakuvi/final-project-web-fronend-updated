@@ -5,6 +5,7 @@ export default function CatergoryInputBoxWithLabel({
   name,
   value,
   handleChange,
+  rows,
 }) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
@@ -12,6 +13,8 @@ export default function CatergoryInputBoxWithLabel({
       <TextField
         value={value}
         onChange={(e) => handleChange(e.target.value, name)}
+        multiline={true} // add multiline prop
+        rows={rows} // set number of rows
         sx={{
           width: "400px",
           border: "none",

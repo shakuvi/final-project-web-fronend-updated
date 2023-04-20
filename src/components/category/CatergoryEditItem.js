@@ -43,7 +43,7 @@ export default function CatergoryEditItem({
         PaperProps={{
           style: {
             width: "40%",
-            height: "60%",
+            height: "90%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",

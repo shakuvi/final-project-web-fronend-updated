@@ -51,11 +51,13 @@ export default function CatergoryEditLayout() {
         value={userSelectedCatergory.name}
         name={"name"}
         handleChange={handlecatergoryChange}
+        rows={1}
       />
       <CatergoryInputBoxWithLabel
         value={userSelectedCatergory.description}
         name={"description"}
         handleChange={handlecatergoryChange}
+        rows={4}
       />
       <PopUpDialogActionButton handleClick={handleClick} />
     </div>

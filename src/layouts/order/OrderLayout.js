@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDetails";
 import OrderDetails from "./orderlayout/OrderDetails";
+import OrderStatusButton from "../../components/order/OrderStatusButton";
 
 const rows = [
   { id: 1, name: "John", age: 25 },
@@ -58,12 +59,14 @@ export default function OrderLayout() {
                   selectedRow === val ? { backgroundColor: "#FD5C25" } : {}
                 }
               >
-                <TableCell>{val.name}</TableCell>
-                <TableCell>{val.name}</TableCell>
-                <TableCell>{val.name}</TableCell>
-                <TableCell>{val.name}</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Name</TableCell>
+                <TableCell>723778</TableCell>
+                <TableCell>2023-01-02</TableCell>
+                <TableCell>11.25</TableCell>
+                <TableCell>pickup</TableCell>
+                <TableCell>02</TableCell>
+                <TableCell>
+                  <OrderStatusButton />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
