@@ -8,7 +8,7 @@ export const getAllOrders = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_ORDERS_LOADING });
     axios
-      .get("http://localhost:5000/order/get-all")
+      .get("https://nsbmproject.radikadilanka.com:5000/order/get-all")
       .then((response) => {
         console.log(response.data);
         dispatch({

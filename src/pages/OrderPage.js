@@ -11,7 +11,7 @@ export default function OrderPage() {
     dispatch(getAllOrders());
   }, [dispatch]);
 
-  const { getAllOrderListLoading, allOrderList } = useSelector(
+  const { getAllOrderListLoading: loadingStatus, allOrderList } = useSelector(
     (store) => store.orderReducer
   );
 
@@ -20,7 +20,19 @@ export default function OrderPage() {
   return (
     <div>
       <CommonLayout>
-        <OrderLayout />
+        {loadingStatus === "loading" ? (
+          <div>Loading</div>
+        ) : loadingStatus === "sucess" ? (
+          allOrderList.length > 0 ? (
+            <OrderLayout info={allOrderList} />
+          ) : (
+            <div>No data</div>
+          )
+        ) : loadingStatus === "fail" ? (
+          <div>Fail</div>
+        ) : (
+          ""
+        )}
       </CommonLayout>
     </div>
   );

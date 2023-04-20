@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-export default function OrderStatusButton() {
+export default function OrderStatusButton({ backgroundColor, color, name }) {
   return (
     <div>
       <Button
@@ -10,9 +10,9 @@ export default function OrderStatusButton() {
           textTransform: "none",
           width: 120,
         }}
-        style={{ backgroundColor: "#DAFFAA", color: "#216708" }}
+        style={{ backgroundColor: backgroundColor, color: color }}
       >
-        Save
+        {name}
       </Button>
     </div>
   );

@@ -14,14 +14,14 @@ const orderReducer = (state = inisialState, action) => {
       return {
         ...state,
         getAllOrderListLoading: "sucess",
-        allCatergoryList: action.payload,
+        allOrderList: action.payload,
       };
 
     case Actions.GET_ALL_ORDERS_FAIL:
       return {
         ...state,
         getAllOrderListLoading: "fail",
-        allCatergoryList: [],
+        allOrderList: [],
       };
 
     default:

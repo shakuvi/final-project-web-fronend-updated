@@ -11,13 +11,7 @@ import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDe
 import OrderDetails from "./orderlayout/OrderDetails";
 import OrderStatusButton from "../../components/order/OrderStatusButton";
 
-const rows = [
-  { id: 1, name: "John", age: 25 },
-  { id: 2, name: "Jane", age: 30 },
-  { id: 3, name: "Bob", age: 35 },
-];
-
-export default function OrderLayout() {
+export default function OrderLayout({ info: rows }) {
   const [selectedRow, setSelectedRow] = React.useState(null);
 
   const [open, setOpen] = React.useState(false);
@@ -56,16 +50,56 @@ export default function OrderLayout() {
                   handleClickOpen();
                 }}
                 style={
-                  selectedRow === val ? { backgroundColor: "#FD5C25" } : {}
+                  selectedRow === val
+                    ? { backgroundColor: "#FD5C25", color: "white" }
+                    : {}
                 }
               >
-                <TableCell>723778</TableCell>
-                <TableCell>2023-01-02</TableCell>
-                <TableCell>11.25</TableCell>
-                <TableCell>pickup</TableCell>
-                <TableCell>02</TableCell>
+                <TableCell
+                  style={selectedRow === val ? { color: "white" } : {}}
+                >
+                  {val._id}
+                </TableCell>
+                <TableCell
+                  style={selectedRow === val ? { color: "white" } : {}}
+                >
+                  {val.createDate}
+                </TableCell>
+                <TableCell
+                  style={selectedRow === val ? { color: "white" } : {}}
+                >
+                  {val.createTime}
+                </TableCell>
+                <TableCell
+                  style={selectedRow === val ? { color: "white" } : {}}
+                >
+                  {val.orderType.orderType}
+                </TableCell>
+                <TableCell
+                  style={selectedRow === val ? { color: "white" } : {}}
+                >
+                  02
+                </TableCell>
                 <TableCell>
-                  <OrderStatusButton />
+                  {val.status === "Pending" ? (
+                    <OrderStatusButton
+                      backgroundColor="#FBCAFF"
+                      color="#216708"
+                      name="Pending"
+                    />
+                  ) : val.status === "Delivered" ? (
+                    <OrderStatusButton
+                      backgroundColor="#B1D0FF"
+                      color="#0A2B7D"
+                      name="Delivered"
+                    />
+                  ) : val.status === "Completed" ? (
+                    <OrderStatusButton
+                      backgroundColor="#DAFFAA"
+                      color="#216708"
+                      name="Completed"
+                    />
+                  ) : null}
                 </TableCell>
               </TableRow>
             ))}
@@ -75,13 +109,12 @@ export default function OrderLayout() {
       <Dialog
         open={open}
         onClose={handleClose}
+        maxWidth="xl"
         PaperProps={{
           style: {
-            width: "40%",
+            width: "60%",
             height: "60%",
             display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
           },
         }}
       >
