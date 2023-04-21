@@ -2,11 +2,9 @@ import { Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import PopUpDialogActionButton from "../../../components/common/PopUpDialogActionButton";
 import OrderStatusButton from "../../../components/order/OrderStatusButton";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function OrderDetails() {
-  const dispatch = useDispatch();
-
   const { userSelectedOrder } = useSelector((store) => store.orderReducer);
   console.log(userSelectedOrder);
   return (
@@ -42,16 +40,22 @@ export default function OrderDetails() {
         pt={2}
         pb={2}
       >
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           Food Item
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
+          Quantity
+        </Grid>
+        <Grid item xs={4}>
           Price
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           Food Item
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
+          Quantity
+        </Grid>
+        <Grid item xs={4}>
           Price
         </Grid>
       </Grid>

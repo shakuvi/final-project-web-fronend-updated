@@ -1,6 +1,8 @@
 import React from "react";
 import {
   Dialog,
+  Grid,
+  IconButton,
   Table,
   TableBody,
   TableCell,
@@ -9,21 +11,11 @@ import {
 } from "@mui/material";
 import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDetails";
 import UserPopUpDialog from "./userlayout/UserPopUpDialog";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import DeleteSweepOutlinedIcon from "@mui/icons-material/DeleteSweepOutlined";
 
-const rows = [
-  { id: 1, name: "John", age: 25 },
-  { id: 2, name: "Jane", age: 30 },
-  { id: 3, name: "Bob", age: 35 },
-];
-
-export default function UserLayout() {
-  const [selectedRow, setSelectedRow] = React.useState(null);
-
+export default function UserLayout({ info: rows }) {
   const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
   const handleClose = () => {
     setOpen(false);
@@ -41,8 +33,12 @@ export default function UserLayout() {
         <Table>
           <TableHead>
             <TableRow>
+              <TableCell style={{ fontWeight: "bold" }}>ID</TableCell>
               <TableCell style={{ fontWeight: "bold" }}>Name</TableCell>
               <TableCell style={{ fontWeight: "bold" }}>Email</TableCell>
+              <TableCell style={{ fontWeight: "bold" }}>
+                Mobile Number
+              </TableCell>
               <TableCell style={{ fontWeight: "bold" }}>
                 Date of birth
               </TableCell>
@@ -51,21 +47,26 @@ export default function UserLayout() {
           </TableHead>
           <TableBody>
             {rows.map((val, key) => (
-              <TableRow
-                key={key}
-                hover
-                onClick={() => {
-                  setSelectedRow(val);
-                  handleClickOpen();
-                }}
-                style={
-                  selectedRow === val ? { backgroundColor: "#FD5C25" } : {}
-                }
-              >
-                <TableCell>{val.name}</TableCell>
-                <TableCell>{val.name}</TableCell>
-                <TableCell>{val.name}</TableCell>
-                <TableCell>{val.name}</TableCell>
+              <TableRow key={key}>
+                <TableCell>{val._id}</TableCell>
+                <TableCell>Hi</TableCell>
+                <TableCell>Hi</TableCell>
+                <TableCell>Hi</TableCell>
+                <TableCell>Hi</TableCell>
+                <TableCell>
+                  <Grid container justifyContent="space-around">
+                    <Grid item>
+                      <IconButton color="secondary">
+                        <EditOutlinedIcon />
+                      </IconButton>
+                    </Grid>
+                    <Grid item>
+                      <IconButton color="primary">
+                        <DeleteSweepOutlinedIcon />
+                      </IconButton>
+                    </Grid>
+                  </Grid>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
