@@ -103,6 +103,13 @@ export default function OrderLayout({ info: rows, handleorderdata }) {
                       name="Completed"
                       isActive
                     />
+                  ) : val.status === "Redy" ? (
+                    <OrderStatusButton
+                      backgroundColor="#DAFFAA"
+                      color="#216708"
+                      name="Completed"
+                      isActive
+                    />
                   ) : null}
                 </TableCell>
               </TableRow>

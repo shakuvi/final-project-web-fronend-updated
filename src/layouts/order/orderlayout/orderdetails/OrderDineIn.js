@@ -23,6 +23,7 @@ export default function OrderDineIn() {
             backgroundColor="#B1D0FF"
             color="#0A2B7D"
             name="Served"
+            isActive
           />
         </Grid>
       </Grid>

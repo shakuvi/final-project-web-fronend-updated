@@ -21,8 +21,9 @@ export default function OrderPickUp() {
         <Grid item>
           <OrderStatusButton
             backgroundColor="#B1D0FF"
-            color="#B1D0FF"
+            color="#081D67"
             name="Ready"
+            isActive
           />
         </Grid>
         <Grid item>
@@ -30,6 +31,7 @@ export default function OrderPickUp() {
             backgroundColor="#DAFFAA"
             color="#216708"
             name="Completed"
+            isActive
           />
         </Grid>
       </Grid>
