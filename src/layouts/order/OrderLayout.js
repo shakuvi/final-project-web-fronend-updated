@@ -89,7 +89,7 @@ export default function OrderLayout({ info: rows, handleorderdata }) {
                       name="Pending"
                       isActive
                     />
-                  ) : val.status === "Delivered" ? (
+                  ) : val.status === "Served" ? (
                     <OrderStatusButton
                       backgroundColor="#B1D0FF"
                       color="#0A2B7D"
