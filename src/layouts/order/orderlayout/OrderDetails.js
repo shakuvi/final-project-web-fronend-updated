@@ -1,8 +1,9 @@
 import { Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import PopUpDialogActionButton from "../../../components/common/PopUpDialogActionButton";
-import OrderStatusButton from "../../../components/order/OrderStatusButton";
 import { useSelector } from "react-redux";
+import OrderDineIn from "./orderdetails/OrderDineIn";
+import OrderPickUp from "./orderdetails/OrderPickUp";
 
 export default function OrderDetails() {
   const { userSelectedOrder } = useSelector((store) => store.orderReducer);
@@ -36,56 +37,25 @@ export default function OrderDetails() {
       <Grid
         container
         justifyContent="space-between"
-        sx={{ marginLeft: "auto", marginRight: "auto", width: "60%" }}
+        sx={{
+          marginLeft: "auto",
+          marginRight: "auto",
+          width: "50%",
+        }}
         pt={2}
         pb={2}
       >
-        <Grid item xs={4}>
-          Food Item
-        </Grid>
-        <Grid item xs={4}>
-          Quantity
-        </Grid>
-        <Grid item xs={4}>
-          Price
-        </Grid>
-        <Grid item xs={4}>
-          Food Item
-        </Grid>
-        <Grid item xs={4}>
-          Quantity
-        </Grid>
-        <Grid item xs={4}>
-          Price
-        </Grid>
+        <Grid item>Food Item</Grid>
+        <Grid item>Quantity</Grid>
+        <Grid item>Price</Grid>
       </Grid>
-      <Grid
-        container
-        justifyContent="space-between"
-        sx={{ marginLeft: "auto", marginRight: "auto", width: "60%" }}
-      >
-        <Grid item>
-          <OrderStatusButton
-            backgroundColor="#FBCAFF"
-            color="#91109C"
-            name="Pending"
-          />
-        </Grid>
-        <Grid item>
-          <OrderStatusButton
-            backgroundColor="#B1D0FF"
-            color="#0A2B7D"
-            name="Delivered"
-          />
-        </Grid>
-        <Grid item>
-          <OrderStatusButton
-            backgroundColor="#DAFFAA"
-            color="#216708"
-            name="Completed"
-          />
-        </Grid>
-      </Grid>
+      {userSelectedOrder.orderType.orderType === "dinein" ? (
+        <OrderDineIn />
+      ) : userSelectedOrder.orderType.orderType === "pickup" ? (
+        <OrderPickUp />
+      ) : (
+        ""
+      )}
       <PopUpDialogActionButton />
     </div>
   );

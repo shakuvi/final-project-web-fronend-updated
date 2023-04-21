@@ -10,12 +10,15 @@ import {
   TableRow,
 } from "@mui/material";
 import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDetails";
-import UserPopUpDialog from "./userlayout/UserPopUpDialog";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteSweepOutlinedIcon from "@mui/icons-material/DeleteSweepOutlined";
 
 export default function UserLayout({ info: rows }) {
   const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
   const handleClose = () => {
     setOpen(false);
@@ -56,7 +59,12 @@ export default function UserLayout({ info: rows }) {
                 <TableCell>
                   <Grid container justifyContent="space-around">
                     <Grid item>
-                      <IconButton color="secondary">
+                      <IconButton
+                        color="secondary"
+                        onClick={() => {
+                          handleClickOpen();
+                        }}
+                      >
                         <EditOutlinedIcon />
                       </IconButton>
                     </Grid>
@@ -80,14 +88,9 @@ export default function UserLayout({ info: rows }) {
           style: {
             width: "80%",
             height: "80%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
           },
         }}
-      >
-        <UserPopUpDialog />
-      </Dialog>
+      ></Dialog>
     </div>
   );
 }

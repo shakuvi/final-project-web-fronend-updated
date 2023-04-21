@@ -3,6 +3,7 @@ import React from "react";
 
 export default function OrderStatusButton({
   backgroundColor,
+  isActive,
   color,
   name,
 }) {
@@ -15,7 +16,7 @@ export default function OrderStatusButton({
           width: 120,
         }}
         style={{
-          backgroundColor: backgroundColor,
+          backgroundColor: isActive ? backgroundColor : "white",
           color: color,
         }}
       >

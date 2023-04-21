@@ -87,18 +87,21 @@ export default function OrderLayout({ info: rows, handleorderdata }) {
                       backgroundColor="#FBCAFF"
                       color="#91109C"
                       name="Pending"
+                      isActive
                     />
                   ) : val.status === "Delivered" ? (
                     <OrderStatusButton
                       backgroundColor="#B1D0FF"
                       color="#0A2B7D"
-                      name="Delivered"
+                      name="Served"
+                      isActive
                     />
                   ) : val.status === "Completed" ? (
                     <OrderStatusButton
                       backgroundColor="#DAFFAA"
                       color="#216708"
                       name="Completed"
+                      isActive
                     />
                   ) : null}
                 </TableCell>
@@ -115,7 +118,6 @@ export default function OrderLayout({ info: rows, handleorderdata }) {
           style: {
             width: "60%",
             height: "60%",
-            display: "flex",
           },
         }}
       >
