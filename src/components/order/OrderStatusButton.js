@@ -6,10 +6,12 @@ export default function OrderStatusButton({
   isActive,
   color,
   name,
+  handleStatusClick,
 }) {
   return (
     <div>
       <Button
+        onClick={handleStatusClick}
         variant="contained"
         sx={{
           textTransform: "none",

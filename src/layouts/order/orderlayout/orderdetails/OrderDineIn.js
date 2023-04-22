@@ -1,8 +1,14 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import OrderStatusButton from "../../../../components/order/OrderStatusButton";
+import { useSelector } from "react-redux";
 
 export default function OrderDineIn() {
+  const { userSelectedOrder } = useSelector((store) => store.orderReducer);
+
+  const handleStatusClick = () => {
+    console.log("work");
+  };
   return (
     <div>
       <Grid
@@ -15,7 +21,8 @@ export default function OrderDineIn() {
             backgroundColor="#FBCAFF"
             color="#91109C"
             name="Pending"
-            isActive
+            isActive={userSelectedOrder.status === "Pending"}
+            handleStatusClick={handleStatusClick}
           />
         </Grid>
         <Grid item>
@@ -23,7 +30,16 @@ export default function OrderDineIn() {
             backgroundColor="#B1D0FF"
             color="#0A2B7D"
             name="Served"
-            isActive
+            isActive={userSelectedOrder.status === "Served"}
+            handleStatusClick={handleStatusClick}
+          />
+        </Grid>
+        <Grid item>
+          <OrderStatusButton
+            backgroundColor="#DAFFAA"
+            color="#216708"
+            name="Completed"
+            isActive={userSelectedOrder.status === "Completed"}
           />
         </Grid>
       </Grid>
