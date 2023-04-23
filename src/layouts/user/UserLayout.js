@@ -52,10 +52,10 @@ export default function UserLayout({ info: rows }) {
             {rows.map((val, key) => (
               <TableRow key={key}>
                 <TableCell>{val._id}</TableCell>
-                <TableCell>Hi</TableCell>
-                <TableCell>Hi</TableCell>
-                <TableCell>Hi</TableCell>
-                <TableCell>Hi</TableCell>
+                <TableCell>{val.firstName + " " + val.lastName}</TableCell>
+                <TableCell>{val.email}</TableCell>
+                <TableCell>{val.mobileNumber}</TableCell>
+                <TableCell>{val.dateOfBirth}</TableCell>
                 <TableCell>
                   <Grid container justifyContent="space-around">
                     <Grid item>

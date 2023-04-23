@@ -1,12 +1,29 @@
 import { Divider, Grid, Typography } from "@mui/material";
 import React from "react";
 import PopUpDialogActionButton from "../../../components/common/PopUpDialogActionButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import OrderDineIn from "./orderdetails/OrderDineIn";
 import OrderPickUp from "./orderdetails/OrderPickUp";
+import { updateOrderStatus } from "../../../store/actions/orderAction";
 
 export default function OrderDetails() {
   const { userSelectedOrder } = useSelector((store) => store.orderReducer);
+  const [orderStatus, setOrderStatus] = React.useState(
+    userSelectedOrder.status
+  );
+
+  const dispatch = useDispatch();
+
+  const handleOrderStatusChanage = (currentStatus) => {
+    setOrderStatus(currentStatus);
+  };
+
+  const handleSave = () => {
+    if (userSelectedOrder !== orderStatus) {
+      dispatch(updateOrderStatus(userSelectedOrder._id, orderStatus));
+    }
+  };
+
   console.log(userSelectedOrder);
   return (
     <div
@@ -50,13 +67,19 @@ export default function OrderDetails() {
         <Grid item>Price</Grid>
       </Grid>
       {userSelectedOrder.orderType.orderType === "dinein" ? (
-        <OrderDineIn />
+        <OrderDineIn
+          orderStatus={orderStatus}
+          handleSelect={handleOrderStatusChanage}
+        />
       ) : userSelectedOrder.orderType.orderType === "pickup" ? (
-        <OrderPickUp />
+        <OrderPickUp
+          orderStatus={orderStatus}
+          handleSelect={handleOrderStatusChanage}
+        />
       ) : (
         ""
       )}
-      <PopUpDialogActionButton />
+      <PopUpDialogActionButton handleClick={handleSave} />
     </div>
   );
 }
