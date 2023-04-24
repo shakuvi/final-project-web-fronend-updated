@@ -6,6 +6,7 @@ import {
   getAllOrders,
   setUserSelectedOrder,
 } from "../store/actions/orderAction";
+import { getAllOrdersByOrderId } from "../store/actions/orderItemAction";
 
 export default function OrderPage() {
   const dispatch = useDispatch();
@@ -32,7 +33,11 @@ export default function OrderPage() {
   const handleorderdata = (order) => {
     console.log(order);
     dispatch(setUserSelectedOrder(order));
+    dispatch(getAllOrdersByOrderId(order._id));
   };
+
+  const { getAllOrderListLoading: getAllOrderByIdLoading, allOrdersById } =
+    useSelector((store) => store.orderItemReducer);
 
   const { getAllOrderListLoading: loadingStatus, allOrderList } = useSelector(
     (store) => store.orderReducer
@@ -48,6 +53,7 @@ export default function OrderPage() {
             <OrderLayout
               info={allOrderList}
               handleorderdata={handleorderdata}
+              allOrdersById={allOrdersById}
             />
           ) : (
             <div>No data</div>

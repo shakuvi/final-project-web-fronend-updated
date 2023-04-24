@@ -10,7 +10,11 @@ import {
 import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDetails";
 import OrderDetails from "./orderlayout/OrderDetails";
 import OrderStatusButton from "../../components/order/OrderStatusButton";
-export default function OrderLayout({ info: rows, handleorderdata }) {
+export default function OrderLayout({
+  info: rows,
+  handleorderdata,
+  allOrdersById,
+}) {
   const [selectedRow, setSelectedRow] = React.useState(null);
 
   const [open, setOpen] = React.useState(false);
@@ -127,7 +131,7 @@ export default function OrderLayout({ info: rows, handleorderdata }) {
           },
         }}
       >
-        <OrderDetails />
+        <OrderDetails allOrdersById={allOrdersById} />
       </Dialog>
     </div>
   );
