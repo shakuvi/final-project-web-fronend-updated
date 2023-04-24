@@ -26,6 +26,7 @@ export default function OrderPage() {
     if (allOrderList.length === 0) {
       dispatch(getAllOrders());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleorderdata = (order) => {
