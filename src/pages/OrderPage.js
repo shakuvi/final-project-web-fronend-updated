@@ -10,9 +10,23 @@ import {
 export default function OrderPage() {
   const dispatch = useDispatch();
 
+  const { orderUpdateLoadingStatus } = useSelector(
+    (store) => store.orderReducer
+  );
+
   useEffect(() => {
-    dispatch(getAllOrders());
-  }, [dispatch]);
+    console.log(orderUpdateLoadingStatus);
+    if (orderUpdateLoadingStatus === "completed") {
+      console.log(orderUpdateLoadingStatus);
+      dispatch(getAllOrders());
+    }
+  }, [dispatch, orderUpdateLoadingStatus]);
+
+  useEffect(() => {
+    if (allOrderList.length === 0) {
+      dispatch(getAllOrders());
+    }
+  }, []);
 
   const handleorderdata = (order) => {
     console.log(order);

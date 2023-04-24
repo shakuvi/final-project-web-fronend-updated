@@ -10,24 +10,8 @@ import {
 import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDetails";
 import OrderDetails from "./orderlayout/OrderDetails";
 import OrderStatusButton from "../../components/order/OrderStatusButton";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllOrders } from "../../store/actions/orderAction";
-
 export default function OrderLayout({ info: rows, handleorderdata }) {
-  const dispatch = useDispatch();
   const [selectedRow, setSelectedRow] = React.useState(null);
-
-  const { orderUpdateLoadingStatus: loadingStatus } = useSelector(
-    (store) => store.orderReducer
-  );
-
-  useEffect(() => {
-    console.log(loadingStatus);
-    if (loadingStatus === "completed") {
-      console.log(loadingStatus);
-      dispatch(getAllOrders());
-    }
-  }, [dispatch, loadingStatus]);
 
   const [open, setOpen] = React.useState(false);
 
