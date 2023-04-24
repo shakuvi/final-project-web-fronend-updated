@@ -31,6 +31,7 @@ export default function UserLayout({ info: rows }) {
         label="Users"
         buttonName="Add New User"
         isEditVisible
+        handleClickOpen={handleClickOpen}
       />
       <div style={{ paddingLeft: 10, paddingRight: 10 }}>
         <Table>

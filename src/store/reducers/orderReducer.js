@@ -4,6 +4,7 @@ const inisialState = {
   getAllOrderListLoading: "notStarted",
   allOrderList: [],
   userSelectedOrder: {},
+  orderUpdateLoadingStatus: "notStarted",
 };
 
 const orderReducer = (state = inisialState, action) => {
@@ -27,6 +28,15 @@ const orderReducer = (state = inisialState, action) => {
 
     case Actions.SET_USER_SELECTED_ORDER:
       return { ...state, userSelectedOrder: action.payload };
+
+    case Actions.UPDATE_ORDER_STATUS_LOADING:
+      return { ...state, orderUpdateLoadingStatus: "loading" };
+
+    case Actions.UPDATE_ORDER_STATUS_SUCESS:
+      return { ...state, orderUpdateLoadingStatus: "completed" };
+
+    case Actions.UPDATE_ORDER_STATUS_FAIL:
+      return { ...state, orderUpdateLoadingStatus: "fail" };
 
     default:
       return state;

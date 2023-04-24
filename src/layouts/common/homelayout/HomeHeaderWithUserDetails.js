@@ -7,6 +7,7 @@ export default function HomeHeaderWithUserDetails({
   label,
   buttonName,
   isEditVisible,
+  handleClickOpen,
 }) {
   return (
     <Grid container alignItems="center" pl={1} pt={1}>
@@ -16,7 +17,14 @@ export default function HomeHeaderWithUserDetails({
       <Grid item xs={6}>
         <Grid container alignItems="center" justifyContent="flex-end">
           <Grid item pr={2}>
-            {isEditVisible ? <TopBarButton buttonName={buttonName} /> : ""}
+            {isEditVisible ? (
+              <TopBarButton
+                handleClickOpen={handleClickOpen}
+                buttonName={buttonName}
+              />
+            ) : (
+              ""
+            )}
           </Grid>
           <Grid item xs={1}>
             <CircleNotificationsIcon fontSize="large" />
