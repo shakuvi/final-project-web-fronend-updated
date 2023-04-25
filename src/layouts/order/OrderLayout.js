@@ -14,6 +14,7 @@ export default function OrderLayout({
   info: rows,
   handleorderdata,
   allOrdersById,
+  getAllOrderListLoading,
 }) {
   const [selectedRow, setSelectedRow] = React.useState(null);
 
@@ -131,7 +132,10 @@ export default function OrderLayout({
           },
         }}
       >
-        <OrderDetails allOrdersById={allOrdersById} />
+        <OrderDetails
+          allOrdersById={allOrdersById}
+          getAllOrderListLoading={getAllOrderListLoading}
+        />
       </Dialog>
     </div>
   );

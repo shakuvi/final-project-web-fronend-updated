@@ -33,7 +33,10 @@ export const updateOrderStatus = (id, status) => {
   return (dispatch) => {
     dispatch({ type: UPDATE_ORDER_STATUS_LOADING });
     axios
-      .post("http://localhost:5000/order/update", { id, status })
+      .post("https://nsbmproject.radikadilanka.com:5000/order/update", {
+        id,
+        status,
+      })
       .then((response) => {
         console.log(response.data);
         dispatch({

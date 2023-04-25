@@ -6,7 +6,11 @@ import OrderDineIn from "./orderdetails/OrderDineIn";
 import OrderPickUp from "./orderdetails/OrderPickUp";
 import { updateOrderStatus } from "../../../store/actions/orderAction";
 
-export default function OrderDetails({ allOrdersById }) {
+export default function OrderDetails({
+  allOrdersById,
+  getAllOrderListLoading,
+}) {
+  console.log(getAllOrderListLoading);
   console.log(allOrdersById);
   const { userSelectedOrder } = useSelector((store) => store.orderReducer);
   const [orderStatus, setOrderStatus] = React.useState(
@@ -75,28 +79,26 @@ export default function OrderDetails({ allOrdersById }) {
       </Grid>
       {allOrdersById.map((val, key) => {
         return (
-          <div>
-            <Grid
-              container
-              justifyContent="space-between"
-              sx={{
-                marginLeft: "auto",
-                marginRight: "auto",
-                width: "70%",
-              }}
-              key={key}
-            >
-              <Grid item xs={4} textAlign="left">
-                {val.food.name}
-              </Grid>
-              <Grid item xs={4}>
-                {val.quantity}
-              </Grid>
-              <Grid item xs={4}>
-                {val.quantity * val.price}
-              </Grid>
+          <Grid
+            container
+            justifyContent="space-between"
+            sx={{
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "70%",
+            }}
+            key={key}
+          >
+            <Grid item xs={4} textAlign="left">
+              {val.food.name}
             </Grid>
-          </div>
+            <Grid item xs={4}>
+              {val.quantity}
+            </Grid>
+            <Grid item xs={4}>
+              {val.quantity * val.price}
+            </Grid>
+          </Grid>
         );
       })}
       <div style={{ paddingTop: 40 }}>

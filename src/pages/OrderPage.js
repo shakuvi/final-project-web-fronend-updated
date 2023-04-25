@@ -36,8 +36,9 @@ export default function OrderPage() {
     dispatch(getAllOrdersByOrderId(order._id));
   };
 
-  const { getAllOrderListLoading: getAllOrderByIdLoading, allOrdersById } =
-    useSelector((store) => store.orderItemReducer);
+  const { getAllOrderListLoading, allOrdersById } = useSelector(
+    (store) => store.orderItemReducer
+  );
 
   const { getAllOrderListLoading: loadingStatus, allOrderList } = useSelector(
     (store) => store.orderReducer
@@ -54,6 +55,7 @@ export default function OrderPage() {
               info={allOrderList}
               handleorderdata={handleorderdata}
               allOrdersById={allOrdersById}
+              getAllOrderListLoading={getAllOrderListLoading}
             />
           ) : (
             <div>No data</div>

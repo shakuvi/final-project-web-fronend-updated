@@ -42,7 +42,9 @@ export const updateCatergory = (catergory) => {
   return (dispatch) => {
     dispatch({ type: UPDATE_CATERGORY_START });
     axios
-      .post("http://localhost:5000/foodcatergory/update", { catergory })
+      .post("https://nsbmproject.radikadilanka.com:5000/foodcatergory/update", {
+        catergory,
+      })
       .then((response) => {
         console.log(response.data);
         dispatch({
