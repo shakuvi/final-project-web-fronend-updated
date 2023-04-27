@@ -5,9 +5,7 @@ import ReviewCard from "./reviewlayout/ReviewCard";
 import { useSelector } from "react-redux";
 
 export default function ReviewLayout() {
-  const { getAllFeedbackListLoading, allFeedbackList } = useSelector(
-    (store) => store.feedbackReducer
-  );
+  const { allFeedbackList } = useSelector((store) => store.feedbackReducer);
   return (
     <div
       style={{ backgroundColor: "#FFF2F2", height: "100vh", textAlign: "left" }}

@@ -12,6 +12,7 @@ import {
 import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDetails";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteSweepOutlinedIcon from "@mui/icons-material/DeleteSweepOutlined";
+import UserDetails from "./userlayout/UserDetails";
 
 export default function UserLayout({ info: rows }) {
   const [open, setOpen] = React.useState(false);
@@ -89,9 +90,13 @@ export default function UserLayout({ info: rows }) {
           style: {
             width: "80%",
             height: "80%",
+            justifyContent: "center",
+            alignItems: "center",
           },
         }}
-      ></Dialog>
+      >
+        <UserDetails />
+      </Dialog>
     </div>
   );
 }

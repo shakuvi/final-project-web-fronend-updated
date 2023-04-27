@@ -1,10 +1,10 @@
 import { TextField, Typography } from "@mui/material";
 import React from "react";
 
-export default function UserInputBoxWithLabel() {
+export default function UserInputBoxWithLabel({name}) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
-      <Typography>Catergory</Typography>
+      <Typography>{name}</Typography>
       <TextField
         sx={{
           width: "300px",

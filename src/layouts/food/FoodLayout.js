@@ -13,7 +13,7 @@ import {
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteSweepOutlinedIcon from "@mui/icons-material/DeleteSweepOutlined";
 
-export default function FoodLayout({ rows }) {
+export default function FoodLayout() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -49,7 +49,7 @@ export default function FoodLayout({ rows }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((val, key) => (
+            {/* {rows.map((val, key) => (
               <TableRow key={key}>
                 <TableCell>{val._id}</TableCell>
                 <TableCell>{val.firstName + " " + val.lastName}</TableCell>
@@ -76,7 +76,7 @@ export default function FoodLayout({ rows }) {
                   </Grid>
                 </TableCell>
               </TableRow>
-            ))}
+            ))} */}
           </TableBody>
         </Table>
         <Dialog
