@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import React from "react";
 import InputBoxWithTopLabel from "../../components/login/InputBoxWithTopLabel";
 import LoginButton from "../../components/login/LoginButton";
+import { NavLink } from "react-router-dom";
 
 export default function LogInLayout() {
   return (
@@ -25,7 +26,9 @@ export default function LogInLayout() {
         />
       </div>
       <div style={{ paddingTop: 25 }}>
-        <LoginButton />
+        <NavLink style={{ textDecoration: "none" }} to={`/home`}>
+          <LoginButton />
+        </NavLink>
       </div>
     </div>
   );

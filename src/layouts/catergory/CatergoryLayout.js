@@ -18,7 +18,7 @@ export default function CatergoryLayout({ info }) {
   const handleClearLoadingStatus = () => {
     dispatch(clearCatergoryLoadingStatus());
   };
-  
+
   useEffect(() => {
     console.log(loadingStatus);
     if (loadingStatus === "completed") {
