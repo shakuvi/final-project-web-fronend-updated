@@ -4,6 +4,7 @@ const inisialState = {
   getAllEmployeeListLoading: "notStarted",
   allEmployeeList: [],
   userSelectedEmployee: {},
+  employeeUpdateLoadingStatus: "notStarted",
 };
 
 const employeeReducer = (state = inisialState, action) => {
@@ -27,6 +28,12 @@ const employeeReducer = (state = inisialState, action) => {
 
     case Actions.SET_USER_SELECTED_EMPLOYEE:
       return { ...state, userSelectedEmployee: action.payload };
+
+    case Actions.UPDATE_EMPLOYEE_SUCCESS:
+      return { ...state, employeeUpdateLoadingStatus: "completed" };
+
+    case Actions.CLEAR_UPDATE_EMPLOYEE_LOADING_STATUS:
+      return { ...state, employeeUpdateLoadingStatus: "notStarted" };
 
     default:
       return state;

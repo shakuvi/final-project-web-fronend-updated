@@ -2,12 +2,30 @@ import { Avatar, Grid, Typography } from "@mui/material";
 import React from "react";
 import UserInputBoxWithLabel from "../../../components/user/UserInputBoxWithLabel";
 import UserAddButton from "../../../components/user/UserAddButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setUserSelectedEmployee,
+  updateEmployee,
+} from "../../../store/actions/employeeAction";
 
 export default function UserDetails() {
+  const dispatch = useDispatch();
   const { userSelectedEmployee } = useSelector(
     (store) => store.employeeReducer
   );
+
+  const handleUserChange = (value, name) => {
+    dispatch(
+      setUserSelectedEmployee({ ...userSelectedEmployee, [name]: value })
+    );
+
+    console.log(name);
+    console.log(value);
+  };
+
+  const handleClick = () => {
+    dispatch(updateEmployee(userSelectedEmployee));
+  };
 
   console.log(userSelectedEmployee);
   return (
@@ -25,29 +43,39 @@ export default function UserDetails() {
       <Grid container spacing={2}>
         <Grid item>
           <UserInputBoxWithLabel
-            name="User Name"
+            fieldname="User Name"
             value={userSelectedEmployee.userName}
+            handleChange={handleUserChange}
+            name="userName"
           />
           <UserInputBoxWithLabel
-            name="Phone Number"
+            fieldname="Phone Number"
             value={userSelectedEmployee.mobileNumber}
+            handleChange={handleUserChange}
+            name="mobileNumber"
           />
           <UserInputBoxWithLabel
-            name="Email Address"
+            fieldname="Email Address"
             value={userSelectedEmployee.email}
+            handleChange={handleUserChange}
+            name="email"
           />
         </Grid>
         <Grid item>
           <UserInputBoxWithLabel
-            name="Password"
+            fieldname="Password"
             value={userSelectedEmployee.password}
+            handleChange={handleUserChange}
+            name="password"
           />
           <UserInputBoxWithLabel
-            name="Date of Birth"
+            fieldname="Date of Birth"
             value={userSelectedEmployee.dateOfBirth}
+            handleChange={handleUserChange}
+            name="dateOfBirth"
           />
           <div style={{ paddingTop: 30 }}>
-            <UserAddButton />
+            <UserAddButton handleClick={handleClick} />
           </div>
         </Grid>
       </Grid>

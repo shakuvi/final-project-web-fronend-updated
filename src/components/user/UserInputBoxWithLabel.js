@@ -1,11 +1,18 @@
 import { TextField, Typography } from "@mui/material";
 import React from "react";
 
-export default function UserInputBoxWithLabel({ name, value }) {
+export default function UserInputBoxWithLabel({
+  fieldname,
+  value,
+  handleChange,
+  name,
+}) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
-      <Typography>{name}</Typography>
+      <Typography>{fieldname}</Typography>
       <TextField
+        value={value}
+        onChange={(e) => handleChange(e.target.value, name)}
         sx={{
           width: "300px",
           border: "none",
@@ -28,7 +35,6 @@ export default function UserInputBoxWithLabel({ name, value }) {
             },
           },
         }}
-        value={value}
       />
     </div>
   );

@@ -7,6 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 export default function UserPage() {
   const dispatch = useDispatch();
 
+  const { employeeUpdateLoadingStatus } = useSelector(
+    (store) => store.employeeReducer
+  );
+
+  useEffect(() => {
+    console.log(employeeUpdateLoadingStatus);
+    if (employeeUpdateLoadingStatus === "completed") {
+      console.log(employeeUpdateLoadingStatus);
+      dispatch(getAllEmployees());
+    }
+  }, [dispatch, employeeUpdateLoadingStatus]);
+
   useEffect(() => {
     dispatch(getAllEmployees());
   }, [dispatch]);

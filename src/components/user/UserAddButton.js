@@ -1,10 +1,11 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-export default function UserAddButton() {
+export default function UserAddButton({ handleClick }) {
   return (
     <div>
       <Button
+        onClick={handleClick}
         variant="contained"
         sx={{
           textTransform: "none",
