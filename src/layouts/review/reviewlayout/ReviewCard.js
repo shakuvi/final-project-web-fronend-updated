@@ -21,7 +21,7 @@ export default function ReviewCard({ val }) {
               {val.userID.userName}
             </Grid>
             <Grid item>
-              <Rating name="simple-controlled" value={val.rateValue} />
+              <Rating name="simple-controlled" value={val.rateValue} readOnly />
             </Grid>
             <Grid item pr={3}>
               {val.sentiment === "positive" ? (

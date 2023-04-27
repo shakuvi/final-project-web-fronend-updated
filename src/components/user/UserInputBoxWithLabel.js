@@ -1,7 +1,7 @@
 import { TextField, Typography } from "@mui/material";
 import React from "react";
 
-export default function UserInputBoxWithLabel({name}) {
+export default function UserInputBoxWithLabel({ name, value }) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
       <Typography>{name}</Typography>
@@ -28,6 +28,7 @@ export default function UserInputBoxWithLabel({name}) {
             },
           },
         }}
+        value={value}
       />
     </div>
   );

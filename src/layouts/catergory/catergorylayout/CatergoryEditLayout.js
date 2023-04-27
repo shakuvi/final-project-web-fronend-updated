@@ -49,13 +49,13 @@ export default function CatergoryEditLayout() {
       </div>
       <CatergoryInputBoxWithLabel
         value={userSelectedCatergory.name}
-        name={"name"}
+        name={"Name"}
         handleChange={handlecatergoryChange}
         rows={1}
       />
       <CatergoryInputBoxWithLabel
         value={userSelectedCatergory.description}
-        name={"description"}
+        name={"Description"}
         handleChange={handlecatergoryChange}
         rows={4}
       />

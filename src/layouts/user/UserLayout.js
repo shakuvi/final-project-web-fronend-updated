@@ -13,12 +13,17 @@ import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDe
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteSweepOutlinedIcon from "@mui/icons-material/DeleteSweepOutlined";
 import UserDetails from "./userlayout/UserDetails";
+import { setUserSelectedEmployee } from "../../store/actions/employeeAction";
+import { useDispatch } from "react-redux";
 
 export default function UserLayout({ info: rows }) {
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (employee) => {
+    console.log(employee);
     setOpen(true);
+    dispatch(setUserSelectedEmployee(employee));
   };
 
   const handleClose = () => {
@@ -64,7 +69,7 @@ export default function UserLayout({ info: rows }) {
                       <IconButton
                         color="secondary"
                         onClick={() => {
-                          handleClickOpen();
+                          handleClickOpen(val);
                         }}
                       >
                         <EditOutlinedIcon />

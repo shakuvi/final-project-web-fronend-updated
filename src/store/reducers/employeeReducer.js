@@ -3,6 +3,7 @@ import * as Actions from "../actions/employeeAction";
 const inisialState = {
   getAllEmployeeListLoading: "notStarted",
   allEmployeeList: [],
+  userSelectedEmployee: {},
 };
 
 const employeeReducer = (state = inisialState, action) => {
@@ -23,6 +24,9 @@ const employeeReducer = (state = inisialState, action) => {
         getAllEmployeeListLoading: "fail",
         allEmployeeList: [],
       };
+
+    case Actions.SET_USER_SELECTED_EMPLOYEE:
+      return { ...state, userSelectedEmployee: action.payload };
 
     default:
       return state;

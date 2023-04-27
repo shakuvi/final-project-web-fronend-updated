@@ -9,7 +9,7 @@ export default function CatergoryInputBoxWithLabel({
 }) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
-      <Typography>Catergory</Typography>
+      <Typography>{name}</Typography>
       <TextField
         value={value}
         onChange={(e) => handleChange(e.target.value, name)}

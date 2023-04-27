@@ -2,11 +2,17 @@ import { Avatar, Grid, Typography } from "@mui/material";
 import React from "react";
 import UserInputBoxWithLabel from "../../../components/user/UserInputBoxWithLabel";
 import UserAddButton from "../../../components/user/UserAddButton";
+import { useSelector } from "react-redux";
 
 export default function UserDetails() {
+  const { userSelectedEmployee } = useSelector(
+    (store) => store.employeeReducer
+  );
+
+  console.log(userSelectedEmployee);
   return (
     <div style={{ textAlign: "center" }}>
-      <Typography>Add User</Typography>
+      <Typography sx={{ color: "#FD5C25" }}>Add User</Typography>
       <div
         style={{ display: "flex", justifyContent: "center", paddingTop: 30 }}
       >
@@ -18,15 +24,30 @@ export default function UserDetails() {
       </div>
       <Grid container spacing={2}>
         <Grid item>
-          <UserInputBoxWithLabel name="Name" />
-          <UserInputBoxWithLabel name="Phone Number" />
-          <UserInputBoxWithLabel name="Email Address" />
+          <UserInputBoxWithLabel
+            name="User Name"
+            value={userSelectedEmployee.userName}
+          />
+          <UserInputBoxWithLabel
+            name="Phone Number"
+            value={userSelectedEmployee.mobileNumber}
+          />
+          <UserInputBoxWithLabel
+            name="Email Address"
+            value={userSelectedEmployee.email}
+          />
         </Grid>
         <Grid item>
-          <UserInputBoxWithLabel name="Password" />
-          <UserInputBoxWithLabel name="Date of Birth" />
+          <UserInputBoxWithLabel
+            name="Password"
+            value={userSelectedEmployee.password}
+          />
+          <UserInputBoxWithLabel
+            name="Date of Birth"
+            value={userSelectedEmployee.dateOfBirth}
+          />
           <div style={{ paddingTop: 30 }}>
-            <UserAddButton   />
+            <UserAddButton />
           </div>
         </Grid>
       </Grid>
