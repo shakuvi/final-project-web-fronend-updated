@@ -49,6 +49,12 @@ export default function UserDetails() {
       <Grid container spacing={2}>
         <Grid item>
           <UserInputBoxWithLabel
+            fieldname="First Name"
+            value={userSelectedEmployee.firstName}
+            handleChange={handleUserChange}
+            name="firstName"
+          />
+          <UserInputBoxWithLabel
             fieldname="User Name"
             value={userSelectedEmployee.userName}
             handleChange={handleUserChange}
@@ -68,6 +74,12 @@ export default function UserDetails() {
           />
         </Grid>
         <Grid item>
+          <UserInputBoxWithLabel
+            fieldname="Last Name"
+            value={userSelectedEmployee.lastName}
+            handleChange={handleUserChange}
+            name="lastName"
+          />
           <UserInputBoxWithLabel
             fieldname="Password"
             value={userSelectedEmployee.password}

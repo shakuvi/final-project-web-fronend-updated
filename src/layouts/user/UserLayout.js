@@ -99,7 +99,7 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
         PaperProps={{
           style: {
             width: "80%",
-            height: "80%",
+            height: "90%",
             justifyContent: "center",
             alignItems: "center",
           },
