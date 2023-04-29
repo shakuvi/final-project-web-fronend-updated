@@ -20,7 +20,13 @@ export default function HomeHeaderWithUserDetails({
             {isEditVisible ? (
               <TopBarButton
                 handleClickOpen={() =>
-                  handleClickOpen({ userName: "", mobileNumber: "", email:"",password:"",dateOfBirth:""})
+                  handleClickOpen({
+                    userName: "",
+                    mobileNumber: "",
+                    email: "",
+                    password: "",
+                    dateOfBirth: "",
+                  })
                 }
                 buttonName={buttonName}
               />

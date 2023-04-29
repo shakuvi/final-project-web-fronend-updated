@@ -13,6 +13,9 @@ export const UPDATE_EMPLOYEE_FAIL = "UPDATE_EMPLOYEE_FAIL";
 export const CLEAR_UPDATE_EMPLOYEE_LOADING_STATUS =
   "CLEAR_UPDATE_EMPLOYEE_LOADING_STATUS";
 
+export const CLEAR_CREATE_EMPLOYEE_LOADING_STATUS =
+  "CLEAR_CREATE_EMPLOYEE_LOADING_STATUS";
+
 export const CREATE_EMPLOYEE_START = "CREATE_EMPLOYEE_START";
 export const CREATE_EMPLOYEE_SUCCESS = "CREATE_EMPLOYEE_SUCCESS";
 export const CREATE_EMPLOYEE_FAIL = "CREATE_EMPLOYEE_FAIL";
@@ -87,5 +90,11 @@ export const createEmployee = (employee) => {
         console.log(e);
         dispatch({ type: CREATE_EMPLOYEE_FAIL });
       });
+  };
+};
+
+export const clearCreateEmployeeLoadingStatus = () => {
+  return (dispatch) => {
+    dispatch({ type: CLEAR_CREATE_EMPLOYEE_LOADING_STATUS });
   };
 };

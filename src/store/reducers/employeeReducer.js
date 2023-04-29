@@ -39,6 +39,9 @@ const employeeReducer = (state = inisialState, action) => {
     case Actions.CREATE_EMPLOYEE_SUCCESS:
       return { ...state, employeeCreteLoadingStatus: "completed" };
 
+    case Actions.CLEAR_CREATE_EMPLOYEE_LOADING_STATUS:
+      return { ...state, employeeCreteLoadingStatus: "notStarted" };
+
     default:
       return state;
   }

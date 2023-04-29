@@ -14,6 +14,7 @@ export default function UserPage() {
     getAllEmployeeListLoading: loadingStatus,
     allEmployeeList,
     employeeUpdateLoadingStatus,
+    employeeCreteLoadingStatus,
   } = useSelector((store) => store.employeeReducer);
 
   const handleClearLoadingStatus = () => {
@@ -22,11 +23,16 @@ export default function UserPage() {
 
   useEffect(() => {
     console.log(employeeUpdateLoadingStatus);
-    if (employeeUpdateLoadingStatus === "completed") {
+    console.log(employeeCreteLoadingStatus);
+    if (
+      employeeUpdateLoadingStatus === "completed" ||
+      employeeCreteLoadingStatus === "completed"
+    ) {
       console.log(employeeUpdateLoadingStatus);
+      console.log(employeeCreteLoadingStatus);
       dispatch(getAllEmployees());
     }
-  }, [dispatch, employeeUpdateLoadingStatus]);
+  }, [dispatch, employeeUpdateLoadingStatus, employeeCreteLoadingStatus]);
 
   useEffect(() => {
     dispatch(getAllEmployees());
