@@ -6,10 +6,11 @@ export default function CatergoryInputBoxWithLabel({
   value,
   handleChange,
   rows,
+  fieldname,
 }) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
-      <Typography>{name}</Typography>
+      <Typography>{fieldname}</Typography>
       <TextField
         value={value}
         onChange={(e) => handleChange(e.target.value, name)}

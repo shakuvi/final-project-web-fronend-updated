@@ -3,12 +3,9 @@ import React from "react";
 import CatergoryInputBoxWithLabel from "../../../components/category/CatergoryInputBoxWithLabel";
 import PopUpDialogActionButton from "../../../components/common/PopUpDialogActionButton";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setUserSelectedCatergory,
-  updateCatergory,
-} from "../../../store/actions/categoryAction";
+import { setUserSelectedCatergory } from "../../../store/actions/categoryAction";
 
-export default function CatergoryEditLayout() {
+export default function CatergoryEditLayout({ handleClick }) {
   const dispatch = useDispatch();
 
   const { userSelectedCatergory } = useSelector(
@@ -21,11 +18,6 @@ export default function CatergoryEditLayout() {
     );
     console.log(name);
     console.log(value);
-  };
-
-  const handleClick = () => {
-    console.log("work");
-    dispatch(updateCatergory(userSelectedCatergory));
   };
 
   console.log(userSelectedCatergory);
@@ -49,15 +41,17 @@ export default function CatergoryEditLayout() {
       </div>
       <CatergoryInputBoxWithLabel
         value={userSelectedCatergory.name}
-        name={"Name"}
+        fieldname="Name"
         handleChange={handlecatergoryChange}
         rows={1}
+        name="name"
       />
       <CatergoryInputBoxWithLabel
         value={userSelectedCatergory.description}
-        name={"Description"}
+        fieldname="Description"
         handleChange={handlecatergoryChange}
         rows={4}
+        name="description"
       />
       <PopUpDialogActionButton handleClick={handleClick} />
     </div>

@@ -2,20 +2,33 @@ import React from "react";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Dialog, IconButton } from "@mui/material";
 import CatergoryEditLayout from "../../layouts/catergory/catergorylayout/CatergoryEditLayout";
+import { updateCatergory } from "../../store/actions/categoryAction";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CatergoryEditItem({
   handleEdit,
   handleClearLoadingStatus,
 }) {
+  const dispatch = useDispatch();
+
+  const { userSelectedCatergory } = useSelector(
+    (store) => store.catergoryReducer
+  );
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
+    handleClearLoadingStatus();
     handleEdit();
     setOpen(true);
   };
 
   const handleClose = () => {
-    handleClearLoadingStatus();
+    setOpen(false);
+  };
+
+  const handleClick = () => {
+    dispatch(updateCatergory(userSelectedCatergory));
     setOpen(false);
   };
   return (
@@ -50,7 +63,7 @@ export default function CatergoryEditItem({
           },
         }}
       >
-        <CatergoryEditLayout />
+        <CatergoryEditLayout handleClick={handleClick} />
       </Dialog>
     </div>
   );
