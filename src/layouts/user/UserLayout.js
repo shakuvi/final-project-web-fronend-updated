@@ -16,7 +16,7 @@ import UserDetails from "./userlayout/UserDetails";
 import { setUserSelectedEmployee } from "../../store/actions/employeeAction";
 import { useDispatch } from "react-redux";
 
-export default function UserLayout({ info: rows }) {
+export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
 
@@ -70,6 +70,7 @@ export default function UserLayout({ info: rows }) {
                         color="secondary"
                         onClick={() => {
                           handleClickOpen(val);
+                          handleClearLoadingStatus();
                         }}
                       >
                         <EditOutlinedIcon />

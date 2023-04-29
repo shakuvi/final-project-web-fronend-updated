@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import CommonLayout from "../layouts/common/CommonLayout";
 import UserLayout from "../layouts/user/UserLayout";
-import { getAllEmployees } from "../store/actions/employeeAction";
+import {
+  clearEmployeeLoadingStatus,
+  getAllEmployees,
+} from "../store/actions/employeeAction";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function UserPage() {
@@ -10,6 +13,13 @@ export default function UserPage() {
   const { employeeUpdateLoadingStatus } = useSelector(
     (store) => store.employeeReducer
   );
+
+  const { getAllEmployeeListLoading: loadingStatus, allEmployeeList } =
+    useSelector((store) => store.employeeReducer);
+
+  const handleClearLoadingStatus = () => {
+    dispatch(clearEmployeeLoadingStatus());
+  };
 
   useEffect(() => {
     console.log(employeeUpdateLoadingStatus);
@@ -23,9 +33,6 @@ export default function UserPage() {
     dispatch(getAllEmployees());
   }, [dispatch]);
 
-  const { getAllEmployeeListLoading: loadingStatus, allEmployeeList } =
-    useSelector((store) => store.employeeReducer);
-
   console.log(allEmployeeList);
   return (
     <div>
@@ -34,7 +41,10 @@ export default function UserPage() {
           <div>Loading</div>
         ) : loadingStatus === "sucess" ? (
           allEmployeeList.length > 0 ? (
-            <UserLayout info={allEmployeeList} />
+            <UserLayout
+              info={allEmployeeList}
+              handleClearLoadingStatus={handleClearLoadingStatus}
+            />
           ) : (
             <div>No data</div>
           )
