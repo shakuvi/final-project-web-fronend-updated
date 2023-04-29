@@ -5,6 +5,7 @@ const inisialState = {
   allEmployeeList: [],
   userSelectedEmployee: {},
   employeeUpdateLoadingStatus: "notStarted",
+  employeeCreteLoadingStatus: "notStarted",
 };
 
 const employeeReducer = (state = inisialState, action) => {
@@ -34,6 +35,9 @@ const employeeReducer = (state = inisialState, action) => {
 
     case Actions.CLEAR_UPDATE_EMPLOYEE_LOADING_STATUS:
       return { ...state, employeeUpdateLoadingStatus: "notStarted" };
+
+    case Actions.CREATE_EMPLOYEE_SUCCESS:
+      return { ...state, employeeCreteLoadingStatus: "completed" };
 
     default:
       return state;

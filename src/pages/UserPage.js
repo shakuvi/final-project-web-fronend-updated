@@ -10,12 +10,11 @@ import { useDispatch, useSelector } from "react-redux";
 export default function UserPage() {
   const dispatch = useDispatch();
 
-  const { employeeUpdateLoadingStatus } = useSelector(
-    (store) => store.employeeReducer
-  );
-
-  const { getAllEmployeeListLoading: loadingStatus, allEmployeeList } =
-    useSelector((store) => store.employeeReducer);
+  const {
+    getAllEmployeeListLoading: loadingStatus,
+    allEmployeeList,
+    employeeUpdateLoadingStatus,
+  } = useSelector((store) => store.employeeReducer);
 
   const handleClearLoadingStatus = () => {
     dispatch(clearEmployeeLoadingStatus());

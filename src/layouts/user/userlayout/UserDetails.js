@@ -4,6 +4,7 @@ import UserInputBoxWithLabel from "../../../components/user/UserInputBoxWithLabe
 import UserAddButton from "../../../components/user/UserAddButton";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  createEmployee,
   setUserSelectedEmployee,
   updateEmployee,
 } from "../../../store/actions/employeeAction";
@@ -24,9 +25,11 @@ export default function UserDetails() {
   };
 
   const handleClick = () => {
+    console.log(userSelectedEmployee);
     if (userSelectedEmployee._id) {
       dispatch(updateEmployee(userSelectedEmployee));
     } else {
+      dispatch(createEmployee(userSelectedEmployee));
     }
   };
 

@@ -13,6 +13,10 @@ export const UPDATE_EMPLOYEE_FAIL = "UPDATE_EMPLOYEE_FAIL";
 export const CLEAR_UPDATE_EMPLOYEE_LOADING_STATUS =
   "CLEAR_UPDATE_EMPLOYEE_LOADING_STATUS";
 
+export const CREATE_EMPLOYEE_START = "CREATE_EMPLOYEE_START";
+export const CREATE_EMPLOYEE_SUCCESS = "CREATE_EMPLOYEE_SUCCESS";
+export const CREATE_EMPLOYEE_FAIL = "CREATE_EMPLOYEE_FAIL";
+
 export const getAllEmployees = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_EMPLOYEES_LOADING });
@@ -62,5 +66,26 @@ export const updateEmployee = (employee) => {
 export const clearEmployeeLoadingStatus = () => {
   return (dispatch) => {
     dispatch({ type: CLEAR_UPDATE_EMPLOYEE_LOADING_STATUS });
+  };
+};
+
+export const createEmployee = (employee) => {
+  return (dispatch) => {
+    dispatch({ type: CREATE_EMPLOYEE_START });
+    axios
+      .post("http://localhost:5000/employee/create", {
+        employee,
+      })
+      .then((response) => {
+        console.log(response.data);
+        dispatch({
+          type: CREATE_EMPLOYEE_SUCCESS,
+          payload: response.data.employee,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+        dispatch({ type: CREATE_EMPLOYEE_FAIL });
+      });
   };
 };
