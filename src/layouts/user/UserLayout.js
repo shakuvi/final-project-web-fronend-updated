@@ -13,7 +13,10 @@ import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDe
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteSweepOutlinedIcon from "@mui/icons-material/DeleteSweepOutlined";
 import UserDetails from "./userlayout/UserDetails";
-import { setUserSelectedEmployee } from "../../store/actions/employeeAction";
+import {
+  clearCreateEmployeeLoadingStatus,
+  setUserSelectedEmployee,
+} from "../../store/actions/employeeAction";
 import { useDispatch } from "react-redux";
 
 export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
@@ -24,6 +27,7 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
     console.log(employee);
     setOpen(true);
     dispatch(setUserSelectedEmployee(employee));
+    dispatch(clearCreateEmployeeLoadingStatus());
   };
 
   const handleClose = () => {
