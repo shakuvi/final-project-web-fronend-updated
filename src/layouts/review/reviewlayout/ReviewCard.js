@@ -45,7 +45,6 @@ export default function ReviewCard({ val }) {
           />
         </Grid>
         <Grid item xs={9}>
-          <Typography>{val._id}</Typography>
           <Typography align="justify">{val.feedbackdetils}</Typography>
         </Grid>
       </Grid>

@@ -24,7 +24,10 @@ export default function UserDetails() {
   };
 
   const handleClick = () => {
-    dispatch(updateEmployee(userSelectedEmployee));
+    if (userSelectedEmployee._id) {
+      dispatch(updateEmployee(userSelectedEmployee));
+    } else {
+    }
   };
 
   console.log(userSelectedEmployee);

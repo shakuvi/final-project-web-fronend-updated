@@ -19,7 +19,9 @@ export default function HomeHeaderWithUserDetails({
           <Grid item pr={2}>
             {isEditVisible ? (
               <TopBarButton
-                handleClickOpen={handleClickOpen}
+                handleClickOpen={() =>
+                  handleClickOpen({ userName: "", mobileNumber: "", email:"",password:"",dateOfBirth:""})
+                }
                 buttonName={buttonName}
               />
             ) : (
