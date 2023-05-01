@@ -24,15 +24,29 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = (employee) => {
-    console.log(employee);
     setOpen(true);
     dispatch(setUserSelectedEmployee(employee));
+    dispatch(clearCreateEmployeeLoadingStatus());
+  };
+
+  const handleAddNewUser = () => {
+    setOpen(true);
+    dispatch(
+      setUserSelectedEmployee({
+        userName: "",
+        mobileNumber: "",
+        email: "",
+        password: "",
+        dateOfBirth: "",
+      })
+    );
     dispatch(clearCreateEmployeeLoadingStatus());
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <div
       style={{ backgroundColor: "#FFF2F2", height: "100vh", textAlign: "left" }}
@@ -41,7 +55,7 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
         label="Users"
         buttonName="Add New User"
         isEditVisible
-        handleClickOpen={handleClickOpen}
+        handleClickOpen={handleAddNewUser}
       />
       <div style={{ paddingLeft: 10, paddingRight: 10 }}>
         <Table>

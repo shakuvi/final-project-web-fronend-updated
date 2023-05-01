@@ -8,6 +8,7 @@ import OrderPage from "./pages/OrderPage";
 import UserPage from "./pages/UserPage";
 import FoodPage from "./pages/FoodPage";
 import CategoryPage from "./pages/CategoryPage";
+import CatergoryFoods from "./pages/CatergoryFoods";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
           <Route path="/review" element={<ReviewPage />} />
           <Route path="/order" element={<OrderPage />} />
           <Route path="/user" element={<UserPage />} />
-          <Route path="/food" element={<FoodPage />} />
+          <Route path="/catergory" element={<FoodPage />} />
           <Route path="/home/category" element={<CategoryPage />} />
+          <Route path="/catergory/foods" element={<CatergoryFoods />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

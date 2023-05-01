@@ -4,6 +4,7 @@ import orderReducer from "./orderReducer";
 import employeeReducer from "./employeeReducer";
 import orderItemReducer from "./orderItemReducer";
 import feedbackReducer from "./feedbackReducer";
+import foodReducer from "./foodReducer";
 
 const rootReducer = combineReducers({
   catergoryReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   employeeReducer,
   orderItemReducer,
   feedbackReducer,
+  foodReducer,
 });
 
 export default rootReducer;

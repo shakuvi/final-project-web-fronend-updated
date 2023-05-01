@@ -3,8 +3,13 @@ import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDe
 import { Dialog, Grid } from "@mui/material";
 import FoodDetails from "./foodlayout/FoodDetails";
 import CategoryItem from "../../components/category/CategoryItem";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserSelectedCatergory } from "../../store/actions/categoryAction";
 
 export default function FoodLayout({ allCatergoryList }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -14,6 +19,12 @@ export default function FoodLayout({ allCatergoryList }) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleSelectCatergory = (catergory) => {
+    dispatch(setUserSelectedCatergory(catergory));
+    navigate("/catergory/foods");
+  };
+
   return (
     <div
       style={{ backgroundColor: "#FFF2F2", height: "100vh", textAlign: "left" }}
@@ -29,7 +40,9 @@ export default function FoodLayout({ allCatergoryList }) {
         {allCatergoryList.map((val, key) => {
           return (
             <Grid item xs={2} key={key}>
-              <CategoryItem name={val.name} image={val.image} />
+              <div onClick={() => handleSelectCatergory(val)}>
+                <CategoryItem name={val.name} image={val.image} />
+              </div>
             </Grid>
           );
         })}

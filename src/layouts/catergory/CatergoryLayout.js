@@ -50,6 +50,9 @@ export default function CatergoryLayout({ info }) {
             </Grid>
           );
         })}
+        <Grid item xs={2}>
+          <div>ddf</div>
+        </Grid>
       </Grid>
     </div>
   );

@@ -14,7 +14,7 @@ const buttons = [
   { title: "Order", route: "order", image: <ShoppingCartCheckoutIcon /> },
   { title: "Reviews", route: "review", image: <ReviewsIcon /> },
   { title: "Users", route: "user", image: <GroupIcon /> },
-  { title: "Foods", route: "food", image: <RestaurantIcon /> },
+  { title: "Food Catergory", route: "catergory", image: <RestaurantIcon /> },
 ];
 
 export default function SideNavBar() {
