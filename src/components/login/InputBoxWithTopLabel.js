@@ -1,13 +1,19 @@
 import { TextField, Typography } from "@mui/material";
 import React from "react";
 
-export default function InputBoxWithTopLabel({ info }) {
+export default function InputBoxWithTopLabel({
+  label,
+  placeholder,
+  handleChange,
+  name,
+}) {
   return (
     <div style={{ textAlign: "left" }}>
-      <Typography>{info.label}</Typography>
+      <Typography>{label}</Typography>
       <TextField
+        onChange={(e) => handleChange(e.target.value, name)}
         fullWidth
-        placeholder={info.place}
+        placeholder={placeholder}
         sx={{
           border: "none",
           boxShadow: "none",

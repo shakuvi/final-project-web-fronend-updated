@@ -2,8 +2,9 @@ import React from "react";
 import HomeHeaderWithUserDetails from "../common/homelayout/HomeHeaderWithUserDetails";
 import { Dialog, Grid } from "@mui/material";
 import FoodDetails from "./foodlayout/FoodDetails";
+import CategoryItem from "../../components/category/CategoryItem";
 
-export default function FoodLayout() {
+export default function FoodLayout({ allCatergoryList }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -23,6 +24,16 @@ export default function FoodLayout() {
         isEditVisible
         handleClickOpen={handleClickOpen}
       />
+
+      <Grid container>
+        {allCatergoryList.map((val, key) => {
+          return (
+            <Grid item xs={2} key={key}>
+              <CategoryItem name={val.name} image={val.image} />
+            </Grid>
+          );
+        })}
+      </Grid>
       <div style={{ paddingLeft: 10, paddingRight: 10 }}>
         <Dialog
           open={open}

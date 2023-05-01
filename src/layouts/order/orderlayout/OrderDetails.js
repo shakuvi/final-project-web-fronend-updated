@@ -6,11 +6,7 @@ import OrderDineIn from "./orderdetails/OrderDineIn";
 import OrderPickUp from "./orderdetails/OrderPickUp";
 import { updateOrderStatus } from "../../../store/actions/orderAction";
 
-export default function OrderDetails({
-  allOrdersById,
-  getAllOrderListLoading,
-}) {
-  console.log(getAllOrderListLoading);
+export default function OrderDetails({ allOrdersById }) {
   console.log(allOrdersById);
   const { userSelectedOrder } = useSelector((store) => store.orderReducer);
   const [orderStatus, setOrderStatus] = React.useState(
@@ -30,6 +26,12 @@ export default function OrderDetails({
   };
 
   console.log(userSelectedOrder);
+
+  const { getAllOrderByIdLoading } = useSelector(
+    (store) => store.orderItemReducer
+  );
+
+  console.log(getAllOrderByIdLoading);
 
   return (
     <div

@@ -17,12 +17,14 @@ export default function LogInLayout() {
 
       <div style={{ paddingTop: 10 }}>
         <InputBoxWithTopLabel
-          info={{ label: "Email", place: "Enter your user name" }}
+          label="User Name"
+          placeholder="Enter your user name"
         />
       </div>
       <div style={{ paddingTop: 10 }}>
         <InputBoxWithTopLabel
-          info={{ label: "Password", place: "Enter your password" }}
+          label="Password"
+          placeholder="Enter your password"
         />
       </div>
       <div style={{ paddingTop: 25 }}>
