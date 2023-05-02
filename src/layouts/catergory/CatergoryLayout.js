@@ -8,12 +8,14 @@ import {
   getAllCatergories,
   setUserSelectedCatergory,
 } from "../../store/actions/categoryAction";
+import CatergoryAdd from "../../components/category/CatergoryAdd";
 
 export default function CatergoryLayout({ info }) {
   const dispatch = useDispatch();
-  const { catergoryUpdateLoadingStatus: loadingStatus } = useSelector(
-    (store) => store.catergoryReducer
-  );
+  const {
+    catergoryUpdateLoadingStatus: loadingStatus,
+    catergoryCreteLoadingStatus,
+  } = useSelector((store) => store.catergoryReducer);
 
   const handleClearLoadingStatus = () => {
     dispatch(clearCatergoryLoadingStatus());
@@ -21,11 +23,16 @@ export default function CatergoryLayout({ info }) {
 
   useEffect(() => {
     console.log(loadingStatus);
-    if (loadingStatus === "completed") {
+    console.log(catergoryCreteLoadingStatus);
+    if (
+      loadingStatus === "completed" ||
+      catergoryCreteLoadingStatus === "completed"
+    ) {
       console.log(loadingStatus);
+      console.log(catergoryCreteLoadingStatus);
       dispatch(getAllCatergories());
     }
-  }, [dispatch, loadingStatus]);
+  }, [dispatch, loadingStatus, catergoryCreteLoadingStatus]);
 
   const handleEdit = (catergory) => {
     console.log(catergory);
@@ -51,7 +58,7 @@ export default function CatergoryLayout({ info }) {
           );
         })}
         <Grid item xs={2}>
-          <div>ddf</div>
+          <CatergoryAdd />
         </Grid>
       </Grid>
     </div>

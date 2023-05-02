@@ -13,6 +13,12 @@ export const UPDATE_CATERGORY_FAIL = "UPDATE_CATERGORY_FAIL";
 export const CLEAR_UPDATE_CATERGORY_LOADING_STATUS =
   "CLEAR_UPDATE_CATERGORY_LOADING_STATUS";
 
+export const CREATE_CATERGORY_START = "CREATE_CATERGORY_START";
+export const CREATE_CATERGORY_SUCCESS = "CREATE_CATERGORY_SUCCESS";
+export const CREATE_CATERGORY_FAIL = "CREATE_CATERGORY_FAIL";
+
+export const CLEAR_CREATE_CATERGORY_STATUS = "CLEAR_CREATE_CATERGORY_STATUS";
+
 export const getAllCatergories = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_CATEGORIES_LOADING });
@@ -62,5 +68,32 @@ export const updateCatergory = (catergory) => {
 export const clearCatergoryLoadingStatus = () => {
   return (dispatch) => {
     dispatch({ type: CLEAR_UPDATE_CATERGORY_LOADING_STATUS });
+  };
+};
+
+export const createCatergory = (catergory) => {
+  return (dispatch) => {
+    dispatch({ type: CREATE_CATERGORY_START });
+    axios
+      .post("http://localhost:5000/foodcatergory/create", {
+        catergory,
+      })
+      .then((response) => {
+        console.log(response.data);
+        dispatch({
+          type: CREATE_CATERGORY_SUCCESS,
+          payload: response.data.foodcatergory,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+        dispatch({ type: CREATE_CATERGORY_FAIL });
+      });
+  };
+};
+
+export const clearCatergoryCreateStatus = () => {
+  return (dispatch) => {
+    dispatch({ type: CLEAR_CREATE_CATERGORY_STATUS });
   };
 };

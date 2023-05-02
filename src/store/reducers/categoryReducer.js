@@ -5,6 +5,7 @@ const inisialState = {
   allCatergoryList: [],
   userSelectedCatergory: {},
   catergoryUpdateLoadingStatus: "notStarted",
+  catergoryCreteLoadingStatus: "notStarted",
 };
 
 const catergoryReducer = (state = inisialState, action) => {
@@ -34,6 +35,12 @@ const catergoryReducer = (state = inisialState, action) => {
 
     case Actions.CLEAR_UPDATE_CATERGORY_LOADING_STATUS:
       return { ...state, catergoryUpdateLoadingStatus: "notStarted" };
+
+    case Actions.CREATE_CATERGORY_SUCCESS:
+      return { ...state, catergoryCreteLoadingStatus: "completed" };
+
+    case Actions.CLEAR_CREATE_CATERGORY_STATUS:
+      return { ...state, catergoryCreteLoadingStatus: "notStarted" };
 
     default:
       return state;
