@@ -7,6 +7,7 @@ import FoodCatergorySelector from "../../../components/food/FoodCatergorySelecto
 export default function FoodDetails({
   employeeSelectedFood,
   handleFoodChange,
+  handleSaveUpate,
 }) {
   return (
     <div style={{ textAlign: "center" }}>
@@ -47,7 +48,7 @@ export default function FoodDetails({
         </Grid>
       </Grid>
       <div style={{ paddingTop: 15 }}>
-        <FoodAddButton />
+        <FoodAddButton handleSaveUpate={handleSaveUpate} />
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 import { Button } from "@mui/material";
 import React from "react";
 
-export default function FoodAddButton() {
+export default function FoodAddButton({ handleSaveUpate }) {
   return (
     <div>
       <Button
+        onClick={handleSaveUpate}
         variant="contained"
         sx={{
           textTransform: "none",

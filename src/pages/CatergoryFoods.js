@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import CommonLayout from "../layouts/common/CommonLayout";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  clearFoodLoadingStatus,
   getAllFoodsByCatergory,
   setEmployeeSelectedFood,
+  updateFood,
 } from "../store/actions/foodAction";
 import {
   Grid,
@@ -31,9 +33,12 @@ export default function CatergoryFoods() {
   const handleClickOpen = (food) => {
     setOpen(true);
     dispatch(setEmployeeSelectedFood(food));
+    dispatch(clearFoodLoadingStatus());
   };
 
-  const { employeeSelectedFood } = useSelector((store) => store.foodReducer);
+  const { employeeSelectedFood, foodUpdateLoadingStatus } = useSelector(
+    (store) => store.foodReducer
+  );
 
   console.log(employeeSelectedFood);
 
@@ -49,10 +54,24 @@ export default function CatergoryFoods() {
     console.log(value);
   };
 
+  const handleSaveUpate = () => {
+    dispatch(updateFood(employeeSelectedFood));
+    console.log(employeeSelectedFood);
+    handleClose();
+  };
+
   const { allFoodList } = useSelector((store) => store.foodReducer);
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  useEffect(() => {
+    console.log(foodUpdateLoadingStatus);
+    if (foodUpdateLoadingStatus === "completed") {
+      console.log(foodUpdateLoadingStatus);
+      dispatch(getAllFoodsByCatergory(userSelectedCatergory._id));
+    }
+  }, [dispatch, foodUpdateLoadingStatus, userSelectedCatergory._id]);
 
   useEffect(() => {
     dispatch(getAllFoodsByCatergory(userSelectedCatergory._id));
@@ -153,6 +172,7 @@ export default function CatergoryFoods() {
                 <FoodDetails
                   employeeSelectedFood={employeeSelectedFood}
                   handleFoodChange={handleFoodChange}
+                  handleSaveUpate={handleSaveUpate}
                 />
               </Grid>
             </Grid>
