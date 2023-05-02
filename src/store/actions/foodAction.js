@@ -4,6 +4,8 @@ export const GET_ALL_FOOD_ITEMS_LOADING = "GET_ALL_FOOD_ITEMS_LOADING";
 export const GET_ALL_FOOD_ITEMS_SUCESS = "GET_ALL_FOOD_ITEMS_SUCESS";
 export const GET_ALL_FOOD_ITEMS_FAIL = "GET_ALL_FOOD_ITEMS_FAIL";
 
+export const SET_EMPLOYEE_SELECTED_FOOD = "SET_EMPLOYEE_SELECTED_FOOD";
+
 export const getAllFoodsByCatergory = (id) => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_FOOD_ITEMS_LOADING });
@@ -22,5 +24,11 @@ export const getAllFoodsByCatergory = (id) => {
         console.log(e);
         dispatch({ type: GET_ALL_FOOD_ITEMS_FAIL });
       });
+  };
+};
+
+export const setEmployeeSelectedFood = (food) => {
+  return (dispatch) => {
+    dispatch({ type: SET_EMPLOYEE_SELECTED_FOOD, payload: food });
   };
 };

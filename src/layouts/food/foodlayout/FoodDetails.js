@@ -2,11 +2,15 @@ import { Avatar, Grid, Typography } from "@mui/material";
 import React from "react";
 import FoodInputBoxWithLabel from "../../../components/food/FoodInputBoxWithLabel";
 import FoodAddButton from "../../../components/food/FoodAddButton";
+import FoodCatergorySelector from "../../../components/food/FoodCatergorySelector";
 
-export default function FoodDetails() {
+export default function FoodDetails({
+  employeeSelectedFood,
+  handleFoodChange,
+}) {
   return (
     <div style={{ textAlign: "center" }}>
-      <Typography sx={{ color: "#FD5C25" }}>Add User</Typography>
+      <Typography sx={{ color: "#FD5C25" }}>Add Food</Typography>
       <div
         style={{ display: "flex", justifyContent: "center", paddingTop: 30 }}
       >
@@ -18,12 +22,28 @@ export default function FoodDetails() {
       </div>
       <Grid container spacing={2}>
         <Grid item>
-          <FoodInputBoxWithLabel fieldName="Name" />
-          <FoodInputBoxWithLabel fieldName="Description" rows={4} />
+          <FoodInputBoxWithLabel
+            fieldName="Name"
+            value={employeeSelectedFood.name}
+            handleFoodChange={handleFoodChange}
+            name="name"
+          />
+          <FoodInputBoxWithLabel
+            fieldName="Description"
+            rows={4}
+            value={employeeSelectedFood.description}
+            handleFoodChange={handleFoodChange}
+            name="description"
+          />
         </Grid>
         <Grid item>
-          <FoodInputBoxWithLabel />
-          <FoodInputBoxWithLabel fieldName="Price" />
+          <FoodCatergorySelector value={employeeSelectedFood.category.name} />
+          <FoodInputBoxWithLabel
+            fieldName="Price"
+            value={employeeSelectedFood.price}
+            handleFoodChange={handleFoodChange}
+            name="price"
+          />
         </Grid>
       </Grid>
       <div style={{ paddingTop: 15 }}>

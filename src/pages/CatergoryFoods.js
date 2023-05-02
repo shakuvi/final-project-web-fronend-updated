@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import CommonLayout from "../layouts/common/CommonLayout";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllFoodsByCatergory } from "../store/actions/foodAction";
+import {
+  getAllFoodsByCatergory,
+  setEmployeeSelectedFood,
+} from "../store/actions/foodAction";
 import {
   Grid,
   IconButton,
@@ -11,15 +14,40 @@ import {
   TableHead,
   TableRow,
   TablePagination,
+  Dialog,
 } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteSweepOutlinedIcon from "@mui/icons-material/DeleteSweepOutlined";
+import FoodDetails from "../layouts/food/foodlayout/FoodDetails";
 
 export default function CatergoryFoods() {
   const dispatch = useDispatch();
   const { userSelectedCatergory } = useSelector(
     (store) => store.catergoryReducer
   );
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = (food) => {
+    setOpen(true);
+    dispatch(setEmployeeSelectedFood(food));
+  };
+
+  const { employeeSelectedFood } = useSelector((store) => store.foodReducer);
+
+  console.log(employeeSelectedFood);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleFoodChange = (value, name) => {
+    dispatch(
+      setEmployeeSelectedFood({ ...employeeSelectedFood, [name]: value })
+    );
+    console.log(name);
+    console.log(value);
+  };
 
   const { allFoodList } = useSelector((store) => store.foodReducer);
 
@@ -73,7 +101,12 @@ export default function CatergoryFoods() {
                   <TableCell>
                     <Grid container justifyContent="space-around">
                       <Grid item>
-                        <IconButton color="secondary">
+                        <IconButton
+                          color="secondary"
+                          onClick={() => {
+                            handleClickOpen(val);
+                          }}
+                        >
                           <EditOutlinedIcon />
                         </IconButton>
                       </Grid>
@@ -97,6 +130,33 @@ export default function CatergoryFoods() {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
+        </div>
+        <div style={{ paddingLeft: 10, paddingRight: 10 }}>
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            maxWidth="xl"
+            PaperProps={{
+              style: {
+                width: "80%",
+                height: "80%",
+              },
+            }}
+          >
+            <Grid
+              container
+              justifyContent="center"
+              alignItems="center"
+              style={{ height: "100%" }}
+            >
+              <Grid item>
+                <FoodDetails
+                  employeeSelectedFood={employeeSelectedFood}
+                  handleFoodChange={handleFoodChange}
+                />
+              </Grid>
+            </Grid>
+          </Dialog>
         </div>
       </CommonLayout>
     </div>

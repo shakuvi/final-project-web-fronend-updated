@@ -1,11 +1,19 @@
 import { TextField, Typography } from "@mui/material";
 import React from "react";
 
-export default function FoodInputBoxWithLabel({ rows, fieldName }) {
+export default function FoodInputBoxWithLabel({
+  rows,
+  fieldName,
+  value,
+  name,
+  handleFoodChange,
+}) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
       <Typography>{fieldName}</Typography>
       <TextField
+        value={value}
+        onChange={(e) => handleFoodChange(e.target.value, name)}
         multiline={true} // add multiline prop
         rows={rows} // set number of rows
         sx={{
