@@ -6,6 +6,7 @@ import CategoryItem from "../../components/category/CategoryItem";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserSelectedCatergory } from "../../store/actions/categoryAction";
+import { setEmployeeSelectedFood } from "../../store/actions/foodAction";
 
 export default function FoodLayout({ allCatergoryList }) {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ export default function FoodLayout({ allCatergoryList }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
+    dispatch(setEmployeeSelectedFood({ name: "", image: "", description: "" }));
     setOpen(true);
   };
 

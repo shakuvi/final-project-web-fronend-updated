@@ -3,12 +3,11 @@ import React from "react";
 import FoodInputBoxWithLabel from "../../../components/food/FoodInputBoxWithLabel";
 import FoodAddButton from "../../../components/food/FoodAddButton";
 import FoodCatergorySelector from "../../../components/food/FoodCatergorySelector";
+import { useSelector } from "react-redux";
 
-export default function FoodDetails({
-  employeeSelectedFood,
-  handleFoodChange,
-  handleSaveUpate,
-}) {
+export default function FoodDetails({ handleFoodChange, handleSaveUpate }) {
+  const { employeeSelectedFood } = useSelector((store) => store.foodReducer);
+  console.log(employeeSelectedFood);
   return (
     <div style={{ textAlign: "center" }}>
       <Typography sx={{ color: "#FD5C25" }}>Add Food</Typography>
@@ -38,7 +37,7 @@ export default function FoodDetails({
           />
         </Grid>
         <Grid item>
-          <FoodCatergorySelector value={employeeSelectedFood.category.name} />
+          <FoodCatergorySelector value={employeeSelectedFood.category?._id} />
           <FoodInputBoxWithLabel
             fieldName="Price"
             value={employeeSelectedFood.price}

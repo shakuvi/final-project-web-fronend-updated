@@ -1,14 +1,17 @@
 import { MenuItem, Select, Typography } from "@mui/material";
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function FoodCatergorySelector({ value }) {
-  const [age, setAge] = React.useState("");
+  const [age, setAge] = React.useState(value);
+  console.log(value);
 
   const handleChange = (event) => {
     setAge(event.target.value);
   };
 
-  console.log(value);
+  const { allCatergoryList } = useSelector((store) => store.catergoryReducer);
+  console.log(allCatergoryList);
 
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
@@ -30,9 +33,14 @@ export default function FoodCatergorySelector({ value }) {
           },
         }}
       >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {allCatergoryList.length > 0 &&
+          allCatergoryList.map((val, key) => {
+            return (
+              <MenuItem key={key} value={val._id}>
+                {val.name}
+              </MenuItem>
+            );
+          })}
       </Select>
     </div>
   );
