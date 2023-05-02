@@ -4,7 +4,7 @@ import { Dialog, Grid } from "@mui/material";
 import FoodDetails from "./foodlayout/FoodDetails";
 import CategoryItem from "../../components/category/CategoryItem";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUserSelectedCatergory } from "../../store/actions/categoryAction";
 import { setEmployeeSelectedFood } from "../../store/actions/foodAction";
 
@@ -16,6 +16,18 @@ export default function FoodLayout({ allCatergoryList }) {
   const handleClickOpen = () => {
     dispatch(setEmployeeSelectedFood({ name: "", image: "", description: "" }));
     setOpen(true);
+  };
+
+  const { employeeSelectedFood } = useSelector((store) => store.foodReducer);
+
+  console.log(employeeSelectedFood);
+
+  const handleFoodChange = (value, name) => {
+    dispatch(
+      setEmployeeSelectedFood({ ...employeeSelectedFood, [name]: value })
+    );
+    console.log(name);
+    console.log(value);
   };
 
   const handleClose = () => {
@@ -68,7 +80,7 @@ export default function FoodLayout({ allCatergoryList }) {
             style={{ height: "100%" }}
           >
             <Grid item>
-              <FoodDetails />
+              <FoodDetails handleFoodChange={handleFoodChange} />
             </Grid>
           </Grid>
         </Dialog>

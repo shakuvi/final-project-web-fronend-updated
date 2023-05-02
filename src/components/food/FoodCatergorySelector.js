@@ -3,11 +3,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export default function FoodCatergorySelector({ value }) {
-  const [age, setAge] = React.useState(value);
-  console.log(value);
+  const [selectedCategory, setSelectedCategory] = React.useState(value);
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setSelectedCategory(event.target.value);
   };
 
   const { allCatergoryList } = useSelector((store) => store.catergoryReducer);
@@ -15,9 +14,9 @@ export default function FoodCatergorySelector({ value }) {
 
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
-      <Typography>Select Catergory</Typography>
+      <Typography>Select Category</Typography>
       <Select
-        value={age}
+        value={selectedCategory}
         onChange={handleChange}
         sx={{
           width: "300px",
