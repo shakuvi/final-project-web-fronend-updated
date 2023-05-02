@@ -7,6 +7,7 @@ import {
   setUserSelectedOrder,
 } from "../store/actions/orderAction";
 import { getAllOrdersByOrderId } from "../store/actions/orderItemAction";
+import { Circles } from "react-loader-spinner";
 
 export default function OrderPage() {
   const dispatch = useDispatch();
@@ -48,7 +49,25 @@ export default function OrderPage() {
     <div>
       <CommonLayout>
         {loadingStatus === "loading" ? (
-          <div>Loading</div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <Circles
+                height="120"
+                width="120"
+                color="#4fa94d"
+                ariaLabel="circles-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            </div>
+          </div>
         ) : loadingStatus === "sucess" ? (
           allOrderList.length > 0 ? (
             <OrderLayout
