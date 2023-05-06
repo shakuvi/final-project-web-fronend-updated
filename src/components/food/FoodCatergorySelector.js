@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 export default function FoodCatergorySelector({ value, handleFoodChange }) {
   const [selectedCategory, setSelectedCategory] = React.useState(value);
 
+  console.log(value);
+
   const handleChange = (event) => {
     setSelectedCategory(event.target.value);
     handleFoodChange(event.target.value, "category");

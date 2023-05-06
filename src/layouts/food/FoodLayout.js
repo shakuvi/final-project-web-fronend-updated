@@ -14,7 +14,14 @@ export default function FoodLayout({ allCatergoryList }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
-    dispatch(setEmployeeSelectedFood({ name: "", image: "", description: "" }));
+    dispatch(
+      setEmployeeSelectedFood({
+        name: "",
+        image: "",
+        description: "",
+        category: "",
+      })
+    );
     setOpen(true);
   };
 
