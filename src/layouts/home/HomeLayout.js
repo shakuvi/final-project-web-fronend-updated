@@ -4,6 +4,7 @@ import HomeCategory from "./homelayout/HomeCategory";
 import HomePopularThisWeek from "./homelayout/HomePopularThisWeek";
 import HomeRecentReviews from "./homelayout/HomeRecentReviews";
 import { useSelector } from "react-redux";
+import LoadingComponet from "../../components/common/LoadingComponet";
 
 export default function HomeLayout() {
   const { getAllCatergoryListLoading: loadingStatus, allCatergoryList } =
@@ -14,7 +15,9 @@ export default function HomeLayout() {
     >
       <HomeOverview />
       {loadingStatus === "loading" ? (
-        <div>Loading</div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <LoadingComponet />
+        </div>
       ) : loadingStatus === "sucess" ? (
         allCatergoryList.length > 0 ? (
           <HomeCategory info={allCatergoryList} />

@@ -6,7 +6,7 @@ import {
   getAllEmployees,
 } from "../store/actions/employeeAction";
 import { useDispatch, useSelector } from "react-redux";
-import { Circles } from "react-loader-spinner";
+import LoadingComponet from "../components/common/LoadingComponet";
 
 export default function UserPage() {
   const dispatch = useDispatch();
@@ -49,19 +49,10 @@ export default function UserPage() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              height: "95vh",
             }}
           >
-            <div>
-              <Circles
-                height="120"
-                width="120"
-                color="#4fa94d"
-                ariaLabel="circles-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-              />
-            </div>
+            <LoadingComponet />
           </div>
         ) : loadingStatus === "sucess" ? (
           allEmployeeList.length > 0 ? (
