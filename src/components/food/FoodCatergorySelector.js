@@ -2,11 +2,12 @@ import { MenuItem, Select, Typography } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 
-export default function FoodCatergorySelector({ value }) {
+export default function FoodCatergorySelector({ value, handleFoodChange }) {
   const [selectedCategory, setSelectedCategory] = React.useState(value);
 
   const handleChange = (event) => {
     setSelectedCategory(event.target.value);
+    handleFoodChange(event.target.value, "category");
   };
 
   const { allCatergoryList } = useSelector((store) => store.catergoryReducer);

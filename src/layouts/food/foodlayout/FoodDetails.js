@@ -37,7 +37,10 @@ export default function FoodDetails({ handleFoodChange, handleSaveUpate }) {
           />
         </Grid>
         <Grid item>
-          <FoodCatergorySelector value={employeeSelectedFood.category?._id} />
+          <FoodCatergorySelector
+            value={employeeSelectedFood.category?._id}
+            handleFoodChange={handleFoodChange}
+          />
           <FoodInputBoxWithLabel
             fieldName="Price"
             value={employeeSelectedFood.price}

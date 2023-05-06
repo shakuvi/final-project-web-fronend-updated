@@ -3,7 +3,7 @@ import CommonLayout from "../layouts/common/CommonLayout";
 import ReviewLayout from "../layouts/review/ReviewLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllFeedbacks } from "../store/actions/feedbackAction";
-import { Circles } from "react-loader-spinner";
+import LoadingComponet from "../components/common/LoadingComponet";
 
 export default function ReviewPage() {
   const dispatch = useDispatch();
@@ -25,19 +25,10 @@ export default function ReviewPage() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              height: "95vh",
             }}
           >
-            <div>
-              <Circles
-                height="120"
-                width="120"
-                color="#4fa94d"
-                ariaLabel="circles-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-              />
-            </div>
+            <LoadingComponet />
           </div>
         ) : getAllFeedbackListLoading === "sucess" ? (
           allFeedbackList.length > 0 ? (
