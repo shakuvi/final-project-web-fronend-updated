@@ -20,6 +20,10 @@ export const CREATE_EMPLOYEE_START = "CREATE_EMPLOYEE_START";
 export const CREATE_EMPLOYEE_SUCCESS = "CREATE_EMPLOYEE_SUCCESS";
 export const CREATE_EMPLOYEE_FAIL = "CREATE_EMPLOYEE_FAIL";
 
+export const EMPOLYEE_LOGIN_START = "EMPOLYEE_LOGIN_START";
+export const EMPOLYEE_LOGIN_SUCCESS = "EMPOLYEE_LOGIN_SUCCESS";
+export const EMPOLYEE_LOGIN_FAIL = "EMPOLYEE_LOGIN_FAIL";
+
 export const getAllEmployees = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_EMPLOYEES_LOADING });
@@ -72,13 +76,21 @@ export const clearEmployeeLoadingStatus = () => {
   };
 };
 
-export const createEmployee = (employee) => {
+export const createEmployee = (employee, token) => {
   return (dispatch) => {
     dispatch({ type: CREATE_EMPLOYEE_START });
     axios
-      .post("http://localhost:5000/employee/create", {
-        employee,
-      })
+      .post(
+        "http://localhost:5000/employee/create",
+        {
+          employee,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         dispatch({
@@ -96,5 +108,24 @@ export const createEmployee = (employee) => {
 export const clearCreateEmployeeLoadingStatus = () => {
   return (dispatch) => {
     dispatch({ type: CLEAR_CREATE_EMPLOYEE_LOADING_STATUS });
+  };
+};
+
+export const employeeLogin = (email, password) => {
+  return (dispatch) => {
+    dispatch({ type: EMPOLYEE_LOGIN_START });
+    axios
+      .post("http://localhost:5000/employee/sign-in", { email, password })
+      .then((response) => {
+        console.log(response.data);
+        dispatch({
+          type: EMPOLYEE_LOGIN_SUCCESS,
+          payload: response.data,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+        dispatch({ type: EMPOLYEE_LOGIN_FAIL });
+      });
   };
 };

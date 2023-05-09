@@ -6,6 +6,9 @@ const inisialState = {
   userSelectedEmployee: {},
   employeeUpdateLoadingStatus: "notStarted",
   employeeCreteLoadingStatus: "notStarted",
+  employeeLoginLoadingStatus: "notStarted",
+  token: "",
+  employee: {},
 };
 
 const employeeReducer = (state = inisialState, action) => {
@@ -41,6 +44,20 @@ const employeeReducer = (state = inisialState, action) => {
 
     case Actions.CLEAR_CREATE_EMPLOYEE_LOADING_STATUS:
       return { ...state, employeeCreteLoadingStatus: "notStarted" };
+
+    case Actions.EMPOLYEE_LOGIN_START:
+      return { ...state, employeeLoginLoadingStatus: "loading" };
+
+    case Actions.EMPOLYEE_LOGIN_SUCCESS:
+      return {
+        ...state,
+        employeeLoginLoadingStatus: "sucess",
+        token: action.payload.token,
+        employee: action.payload.employee,
+      };
+
+    case Actions.EMPOLYEE_LOGIN_FAIL:
+      return { ...state, employeeLoginLoadingStatus: "fail" };
 
     default:
       return state;
