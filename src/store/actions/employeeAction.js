@@ -58,7 +58,7 @@ export const updateEmployee = (employee, token) => {
     dispatch({ type: UPDATE_EMPLOYEE_START });
     axios
       .post(
-        "http://localhost:5000/employee/update",
+        "https://nsbmproject.radikadilanka.com:5000/employee/update",
         {
           employee,
         },
@@ -93,7 +93,7 @@ export const createEmployee = (employee, token) => {
     dispatch({ type: CREATE_EMPLOYEE_START });
     axios
       .post(
-        "http://localhost:5000/employee/create",
+        "https://nsbmproject.radikadilanka.com:5000/employee/create",
         {
           employee,
         },
@@ -127,7 +127,10 @@ export const employeeLogin = (email, password) => {
   return (dispatch) => {
     dispatch({ type: EMPOLYEE_LOGIN_START });
     axios
-      .post("http://localhost:5000/employee/sign-in", { email, password })
+      .post("https://nsbmproject.radikadilanka.com:5000/employee/sign-in", {
+        email,
+        password,
+      })
       .then((response) => {
         console.log(response.data);
         dispatch({

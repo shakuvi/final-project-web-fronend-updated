@@ -16,6 +16,7 @@ export default function UserPage() {
     allEmployeeList,
     employeeUpdateLoadingStatus,
     employeeCreteLoadingStatus,
+    token,
   } = useSelector((store) => store.employeeReducer);
 
   const handleClearLoadingStatus = () => {
@@ -31,13 +32,18 @@ export default function UserPage() {
     ) {
       console.log(employeeUpdateLoadingStatus);
       console.log(employeeCreteLoadingStatus);
-      dispatch(getAllEmployees());
+      dispatch(getAllEmployees(token));
     }
-  }, [dispatch, employeeUpdateLoadingStatus, employeeCreteLoadingStatus]);
+  }, [
+    dispatch,
+    employeeUpdateLoadingStatus,
+    employeeCreteLoadingStatus,
+    token,
+  ]);
 
   useEffect(() => {
-    dispatch(getAllEmployees());
-  }, [dispatch]);
+    dispatch(getAllEmployees(token));
+  }, [dispatch, token]);
 
   console.log(allEmployeeList);
   return (

@@ -9,8 +9,10 @@ import UserPage from "./pages/UserPage";
 import FoodPage from "./pages/FoodPage";
 import CategoryPage from "./pages/CategoryPage";
 import CatergoryFoods from "./pages/CatergoryFoods";
+// import { useSelector } from "react-redux";
 
 function App() {
+  // const { employee } = useSelector((store) => store.employeeReducer);
   return (
     <div className="App">
       <BrowserRouter>

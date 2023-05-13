@@ -31,7 +31,7 @@ export default function LogInLayout() {
       console.log(employee);
       if (employee.employeeType === "owner") {
         navigate("/home");
-      } else {
+      } else if (employee.employeeType === "kitchen") {
         navigate("/order");
       }
     }

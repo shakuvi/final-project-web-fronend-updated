@@ -8,7 +8,7 @@ export const getAllFeedbacks = (token) => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_FEEDBACKS_LOADING });
     axios
-      .get("http://localhost:5000/feedback/get-all", {
+      .get("https://nsbmproject.radikadilanka.com:5000/feedback/get-all", {
         headers: {
           Authorization: "Bearer " + token,
         },

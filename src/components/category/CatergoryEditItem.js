@@ -15,6 +15,8 @@ export default function CatergoryEditItem({
     (store) => store.catergoryReducer
   );
 
+  const { token } = useSelector((store) => store.employeeReducer);
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -28,7 +30,7 @@ export default function CatergoryEditItem({
   };
 
   const handleClick = () => {
-    dispatch(updateCatergory(userSelectedCatergory));
+    dispatch(updateCatergory(userSelectedCatergory, token));
     setOpen(false);
   };
   return (
