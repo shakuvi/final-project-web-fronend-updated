@@ -24,11 +24,15 @@ export const EMPOLYEE_LOGIN_START = "EMPOLYEE_LOGIN_START";
 export const EMPOLYEE_LOGIN_SUCCESS = "EMPOLYEE_LOGIN_SUCCESS";
 export const EMPOLYEE_LOGIN_FAIL = "EMPOLYEE_LOGIN_FAIL";
 
-export const getAllEmployees = () => {
+export const getAllEmployees = (token) => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_EMPLOYEES_LOADING });
     axios
-      .get("https://nsbmproject.radikadilanka.com:5000/employee/get-all")
+      .get("https://nsbmproject.radikadilanka.com:5000/employee/get-all", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
       .then((response) => {
         console.log(response.data);
         dispatch({
