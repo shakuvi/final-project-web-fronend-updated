@@ -9,6 +9,7 @@ const inisialState = {
   employeeLoginLoadingStatus: "notStarted",
   token: "",
   employee: {},
+  loginErroeMessage: "",
 };
 
 const employeeReducer = (state = inisialState, action) => {
@@ -57,7 +58,11 @@ const employeeReducer = (state = inisialState, action) => {
       };
 
     case Actions.EMPOLYEE_LOGIN_FAIL:
-      return { ...state, employeeLoginLoadingStatus: "fail" };
+      return {
+        ...state,
+        employeeLoginLoadingStatus: "fail",
+        loginErroeMessage: action.payload,
+      };
 
     default:
       return state;

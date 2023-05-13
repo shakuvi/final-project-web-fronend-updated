@@ -49,13 +49,21 @@ export const setUserSelectedEmployee = (employee) => {
   };
 };
 
-export const updateEmployee = (employee) => {
+export const updateEmployee = (employee, token) => {
   return (dispatch) => {
     dispatch({ type: UPDATE_EMPLOYEE_START });
     axios
-      .post("http://localhost:5000/employee/update", {
-        employee,
-      })
+      .post(
+        "http://localhost:5000/employee/update",
+        {
+          employee,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         dispatch({
@@ -125,7 +133,10 @@ export const employeeLogin = (email, password) => {
       })
       .catch((e) => {
         console.log(e);
-        dispatch({ type: EMPOLYEE_LOGIN_FAIL });
+        dispatch({
+          type: EMPOLYEE_LOGIN_FAIL,
+          payload: e.response.data.message,
+        });
       });
   };
 };

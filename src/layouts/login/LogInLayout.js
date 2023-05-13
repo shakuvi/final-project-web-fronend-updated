@@ -1,10 +1,43 @@
 import { Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import InputBoxWithTopLabel from "../../components/login/InputBoxWithTopLabel";
 import LoginButton from "../../components/login/LoginButton";
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { employeeLogin } from "../../store/actions/employeeAction";
+import { useNavigate } from "react-router-dom";
 
 export default function LogInLayout() {
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const { employeeLoginLoadingStatus, loginErroeMessage, employee } =
+    useSelector((store) => store.employeeReducer);
+
+  console.log(email);
+  console.log(password);
+
+  const handleSignIn = () => {
+    dispatch(employeeLogin(email, password));
+  };
+
+  useEffect(() => {
+    console.log(employeeLoginLoadingStatus);
+    console.log(loginErroeMessage);
+    if (employeeLoginLoadingStatus === "sucess") {
+      console.log(employee);
+      if (employee.employeeType === "owner") {
+        navigate("/home");
+      } else {
+        navigate("/order");
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [employeeLoginLoadingStatus]);
+
   return (
     <div
       style={{
@@ -17,20 +50,20 @@ export default function LogInLayout() {
 
       <div style={{ paddingTop: 10 }}>
         <InputBoxWithTopLabel
-          label="User Name"
-          placeholder="Enter your user name"
+          label="Email"
+          placeholder="Enter your user email"
+          handleChange={setEmail}
         />
       </div>
       <div style={{ paddingTop: 10 }}>
         <InputBoxWithTopLabel
           label="Password"
           placeholder="Enter your password"
+          handleChange={setPassword}
         />
       </div>
       <div style={{ paddingTop: 25 }}>
-        <NavLink style={{ textDecoration: "none" }} to={`/home`}>
-          <LoginButton />
-        </NavLink>
+        <LoginButton handleSignIn={handleSignIn} />
       </div>
     </div>
   );

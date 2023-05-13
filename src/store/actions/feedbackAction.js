@@ -4,11 +4,15 @@ export const GET_ALL_FEEDBACKS_LOADING = "GET_ALL_FEEDBACKS_LOADING";
 export const GET_ALL_FEEDBACKS_SUCESS = "GET_ALL_FEEDBACKS_SUCESS";
 export const GET_ALL_FEEDBACKS_FAIL = "GET_ALL_FEEDBACKS_FAIL";
 
-export const getAllFeedbacks = () => {
+export const getAllFeedbacks = (token) => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_FEEDBACKS_LOADING });
     axios
-      .get("http://localhost:5000/feedback/get-all")
+      .get("http://localhost:5000/feedback/get-all", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
       .then((response) => {
         console.log(response.data);
         dispatch({

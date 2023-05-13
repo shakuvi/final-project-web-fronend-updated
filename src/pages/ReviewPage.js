@@ -12,8 +12,11 @@ export default function ReviewPage() {
     (store) => store.feedbackReducer
   );
 
+  const { token } = useSelector((store) => store.employeeReducer);
+
   useEffect(() => {
-    dispatch(getAllFeedbacks());
+    dispatch(getAllFeedbacks(token));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return (

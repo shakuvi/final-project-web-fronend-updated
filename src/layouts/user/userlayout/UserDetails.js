@@ -11,7 +11,7 @@ import {
 
 export default function UserDetails() {
   const dispatch = useDispatch();
-  const { userSelectedEmployee } = useSelector(
+  const { userSelectedEmployee, token } = useSelector(
     (store) => store.employeeReducer
   );
 
@@ -27,7 +27,7 @@ export default function UserDetails() {
   const handleClick = () => {
     console.log(userSelectedEmployee);
     if (userSelectedEmployee._id) {
-      dispatch(updateEmployee(userSelectedEmployee));
+      dispatch(updateEmployee(userSelectedEmployee, token));
     } else {
       dispatch(createEmployee(userSelectedEmployee));
     }

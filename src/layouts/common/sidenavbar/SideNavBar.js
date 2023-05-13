@@ -8,16 +8,46 @@ import RestaurantIcon from "@mui/icons-material/Restaurant";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import { NavLink } from "react-router-dom";
 import LogOutButton from "../../../components/common/sidenavbar/LogOutButton";
+import { useSelector } from "react-redux";
 
-const buttons = [
-  { title: "Home", route: "home", image: <HomeIcon /> },
-  { title: "Order", route: "order", image: <ShoppingCartCheckoutIcon /> },
-  { title: "Reviews", route: "review", image: <ReviewsIcon /> },
-  { title: "Users", route: "user", image: <GroupIcon /> },
-  { title: "Food Catergory", route: "catergory", image: <RestaurantIcon /> },
-];
+// const buttons = [
+//   { title: "Home", route: "home", image: <HomeIcon /> },
+//   { title: "Order", route: "order", image: <ShoppingCartCheckoutIcon /> },
+//   { title: "Reviews", route: "review", image: <ReviewsIcon /> },
+//   { title: "Users", route: "user", image: <GroupIcon /> },
+//   { title: "Food Catergory", route: "catergory", image: <RestaurantIcon /> },
+// ];
 
 export default function SideNavBar() {
+  const { employee } = useSelector((store) => store.employeeReducer);
+
+  const buttons =
+    employee.employeeType === "owner"
+      ? [
+          { title: "Home", route: "home", image: <HomeIcon /> },
+          {
+            title: "Order",
+            route: "order",
+            image: <ShoppingCartCheckoutIcon />,
+          },
+          { title: "Reviews", route: "review", image: <ReviewsIcon /> },
+          { title: "Users", route: "user", image: <GroupIcon /> },
+          {
+            title: "Food Category",
+            route: "catergory",
+            image: <RestaurantIcon />,
+          },
+        ]
+      : [
+          // Buttons for non-owner employees
+          {
+            title: "Order",
+            route: "order",
+            image: <ShoppingCartCheckoutIcon />,
+          },
+          { title: "Reviews", route: "review", image: <ReviewsIcon /> },
+        ];
+
   return (
     <div>
       <div style={{ paddingTop: 10 }}>

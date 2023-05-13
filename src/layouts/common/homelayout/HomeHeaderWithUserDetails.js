@@ -2,6 +2,7 @@ import { Avatar, Grid, Typography } from "@mui/material";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
 import React from "react";
 import TopBarButton from "../../../components/common/TopBarButton";
+import { useSelector } from "react-redux";
 
 export default function HomeHeaderWithUserDetails({
   label,
@@ -9,6 +10,8 @@ export default function HomeHeaderWithUserDetails({
   isEditVisible,
   handleClickOpen,
 }) {
+  const { employee } = useSelector((store) => store.employeeReducer);
+  console.log(employee);
   return (
     <Grid container alignItems="center" pl={1} pt={1}>
       <Grid item xs={6}>
@@ -33,7 +36,7 @@ export default function HomeHeaderWithUserDetails({
             <Avatar>R</Avatar>
           </Grid>
           <Grid item xs={2}>
-            <Typography>Radika</Typography>
+            <Typography>{employee.userName}</Typography>
           </Grid>
         </Grid>
       </Grid>
