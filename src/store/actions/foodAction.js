@@ -40,13 +40,21 @@ export const setEmployeeSelectedFood = (food) => {
   };
 };
 
-export const updateFood = (food) => {
+export const updateFood = (food, token) => {
   return (dispatch) => {
     dispatch({ type: UPDATE_FOOD_START });
     axios
-      .post("http://localhost:5000/food/update", {
-        food,
-      })
+      .post(
+        "http://localhost:5000/food/update",
+        {
+          food,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         dispatch({

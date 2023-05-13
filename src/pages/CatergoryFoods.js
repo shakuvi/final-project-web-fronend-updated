@@ -39,6 +39,7 @@ export default function CatergoryFoods() {
   const { employeeSelectedFood, foodUpdateLoadingStatus } = useSelector(
     (store) => store.foodReducer
   );
+  const { token } = useSelector((store) => store.employeeReducer);
 
   console.log(employeeSelectedFood);
 
@@ -55,7 +56,7 @@ export default function CatergoryFoods() {
   };
 
   const handleSaveUpate = () => {
-    dispatch(updateFood(employeeSelectedFood));
+    dispatch(updateFood(employeeSelectedFood, token));
     console.log(employeeSelectedFood);
     handleClose();
   };
