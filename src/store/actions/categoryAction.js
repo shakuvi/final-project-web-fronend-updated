@@ -19,15 +19,11 @@ export const CREATE_CATERGORY_FAIL = "CREATE_CATERGORY_FAIL";
 
 export const CLEAR_CREATE_CATERGORY_STATUS = "CLEAR_CREATE_CATERGORY_STATUS";
 
-export const getAllCatergories = (token) => {
+export const getAllCatergories = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_CATEGORIES_LOADING });
     axios
-      .get("https://nsbmproject.radikadilanka.com:5000/foodcatergory/get-all", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      })
+      .get("https://nsbmproject.radikadilanka.com:5000/foodcatergory/get-all")
       .then((response) => {
         console.log(response.data);
         dispatch({
@@ -48,21 +44,13 @@ export const setUserSelectedCatergory = (catergory) => {
   };
 };
 
-export const updateCatergory = (catergory, token) => {
+export const updateCatergory = (catergory) => {
   return (dispatch) => {
     dispatch({ type: UPDATE_CATERGORY_START });
     axios
-      .post(
-        "https://nsbmproject.radikadilanka.com:5000/foodcatergory/update",
-        {
-          catergory,
-        },
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      )
+      .post("https://nsbmproject.radikadilanka.com:5000/foodcatergory/update", {
+        catergory,
+      })
       .then((response) => {
         console.log(response.data);
         dispatch({
@@ -83,21 +71,13 @@ export const clearCatergoryLoadingStatus = () => {
   };
 };
 
-export const createCatergory = (catergory, token) => {
+export const createCatergory = (catergory) => {
   return (dispatch) => {
     dispatch({ type: CREATE_CATERGORY_START });
     axios
-      .post(
-        "https://nsbmproject.radikadilanka.com:5000/foodcatergory/create",
-        {
-          catergory,
-        },
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      )
+      .post("https://nsbmproject.radikadilanka.com:5000/foodcatergory/create", {
+        catergory,
+      })
       .then((response) => {
         console.log(response.data);
         dispatch({

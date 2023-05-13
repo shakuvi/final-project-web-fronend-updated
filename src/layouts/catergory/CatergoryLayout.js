@@ -17,7 +17,7 @@ export default function CatergoryLayout({ info }) {
     catergoryCreteLoadingStatus,
   } = useSelector((store) => store.catergoryReducer);
 
-  const { token } = useSelector((store) => store.employeeReducer);
+
 
   const handleClearLoadingStatus = () => {
     dispatch(clearCatergoryLoadingStatus());
@@ -32,9 +32,9 @@ export default function CatergoryLayout({ info }) {
     ) {
       console.log(loadingStatus);
       console.log(catergoryCreteLoadingStatus);
-      dispatch(getAllCatergories(token));
+      dispatch(getAllCatergories());
     }
-  }, [dispatch, loadingStatus, catergoryCreteLoadingStatus, token]);
+  }, [dispatch, loadingStatus, catergoryCreteLoadingStatus]);
 
   const handleEdit = (catergory) => {
     console.log(catergory);
