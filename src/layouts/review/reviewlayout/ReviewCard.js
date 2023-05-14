@@ -18,17 +18,17 @@ export default function ReviewCard({ val }) {
         <Grid item xs={10}>
           <Grid container justifyContent="space-between">
             <Grid item pl={3}>
-              {val.userID.userName}
+              {val.userId.userName}
             </Grid>
             <Grid item>
               <Rating name="simple-controlled" value={val.rateValue} readOnly />
             </Grid>
             <Grid item pr={3}>
-              {val.sentiment === "positive" ? (
+              {val.sentiment === "Positive" ? (
                 <div> 😀</div>
-              ) : val.sentiment === "negative" ? (
+              ) : val.sentiment === "Negative" ? (
                 <div>😖</div>
-              ) : val.sentiment === "neutral" ? (
+              ) : val.sentiment === "Neutral" ? (
                 <div> 🙂</div>
               ) : null}
             </Grid>

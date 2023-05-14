@@ -44,13 +44,21 @@ export const setUserSelectedCatergory = (catergory) => {
   };
 };
 
-export const updateCatergory = (catergory) => {
+export const updateCatergory = (catergory, token) => {
   return (dispatch) => {
     dispatch({ type: UPDATE_CATERGORY_START });
     axios
-      .post("https://nsbmproject.radikadilanka.com:5000/foodcatergory/update", {
-        catergory,
-      })
+      .post(
+        "https://nsbmproject.radikadilanka.com:5000/foodcatergory/update",
+        {
+          catergory,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         dispatch({

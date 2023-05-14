@@ -23,12 +23,14 @@ export default function CatergoryEditItem({
     setOpen(true);
   };
 
+  const { token } = useSelector((store) => store.employeeReducer);
+
   const handleClose = () => {
     setOpen(false);
   };
 
   const handleClick = () => {
-    dispatch(updateCatergory(userSelectedCatergory));
+    dispatch(updateCatergory(userSelectedCatergory, token));
     setOpen(false);
   };
   return (

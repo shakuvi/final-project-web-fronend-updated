@@ -15,8 +15,8 @@ export default function OrderPickUp({ orderStatus, handleSelect }) {
             backgroundColor="#FBCAFF"
             color="#91109C"
             name="Pending"
-            isActive={orderStatus === "Pending"}
-            handleStatusClick={() => handleSelect("Pending")}
+            isActive={orderStatus === "pending"}
+            handleStatusClick={() => handleSelect("pending")}
           />
         </Grid>
         <Grid item>
@@ -24,8 +24,8 @@ export default function OrderPickUp({ orderStatus, handleSelect }) {
             backgroundColor="#B1D0FF"
             color="#081D67"
             name="Ready"
-            isActive={orderStatus === "Ready"}
-            handleStatusClick={() => handleSelect("Ready")}
+            isActive={orderStatus === "ready"}
+            handleStatusClick={() => handleSelect("ready")}
           />
         </Grid>
         <Grid item>
@@ -33,8 +33,8 @@ export default function OrderPickUp({ orderStatus, handleSelect }) {
             backgroundColor="#DAFFAA"
             color="#216708"
             name="Completed"
-            isActive={orderStatus === "Completed"}
-            handleStatusClick={() => handleSelect("Completed")}
+            isActive={orderStatus === "completed"}
+            handleStatusClick={() => handleSelect("completed")}
           />
         </Grid>
       </Grid>

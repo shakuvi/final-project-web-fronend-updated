@@ -17,9 +17,12 @@ export const getAllFoodsByCatergory = (id) => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_FOOD_ITEMS_LOADING });
     axios
-      .post("http://localhost:5000/food/get-food-by-catergory-id", {
-        category: id,
-      })
+      .post(
+        "https://nsbmproject.radikadilanka.com:5000/food/get-food-by-catergory-id",
+        {
+          category: id,
+        }
+      )
       .then((response) => {
         console.log(response.data);
         dispatch({

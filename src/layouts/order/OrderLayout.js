@@ -86,28 +86,28 @@ export default function OrderLayout({
                   02
                 </TableCell>
                 <TableCell>
-                  {val.status === "Pending" ? (
+                  {val.status === "pending" ? (
                     <OrderStatusButton
                       backgroundColor="#FBCAFF"
                       color="#91109C"
                       name="Pending"
                       isActive
                     />
-                  ) : val.status === "Served" ? (
+                  ) : val.status === "served" ? (
                     <OrderStatusButton
                       backgroundColor="#B1D0FF"
                       color="#0A2B7D"
                       name="Served"
                       isActive
                     />
-                  ) : val.status === "Completed" ? (
+                  ) : val.status === "completed" ? (
                     <OrderStatusButton
                       backgroundColor="#DAFFAA"
                       color="#216708"
                       name="Completed"
                       isActive
                     />
-                  ) : val.status === "Ready" ? (
+                  ) : val.status === "ready" ? (
                     <OrderStatusButton
                       backgroundColor="#B1D0FF"
                       color="#0A2B7D"

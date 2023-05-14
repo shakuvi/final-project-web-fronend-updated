@@ -15,8 +15,8 @@ export default function OrderDineIn({ orderStatus, handleSelect }) {
             backgroundColor="#FBCAFF"
             color="#91109C"
             name="Pending"
-            isActive={orderStatus === "Pending"}
-            handleStatusClick={() => handleSelect("Pending")}
+            isActive={orderStatus === "pending"}
+            handleStatusClick={() => handleSelect("pending")}
           />
         </Grid>
         <Grid item>
@@ -24,8 +24,8 @@ export default function OrderDineIn({ orderStatus, handleSelect }) {
             backgroundColor="#B1D0FF"
             color="#0A2B7D"
             name="Served"
-            isActive={orderStatus === "Served"}
-            handleStatusClick={() => handleSelect("Served")}
+            isActive={orderStatus === "served"}
+            handleStatusClick={() => handleSelect("served")}
           />
         </Grid>
         <Grid item>
@@ -33,8 +33,8 @@ export default function OrderDineIn({ orderStatus, handleSelect }) {
             backgroundColor="#DAFFAA"
             color="#216708"
             name="Completed"
-            isActive={orderStatus === "Completed"}
-            handleStatusClick={() => handleSelect("Completed")}
+            isActive={orderStatus === "completed"}
+            handleStatusClick={() => handleSelect("completed")}
           />
         </Grid>
       </Grid>

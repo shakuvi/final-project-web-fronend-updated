@@ -4,15 +4,11 @@ export const GET_ALL_FEEDBACKS_LOADING = "GET_ALL_FEEDBACKS_LOADING";
 export const GET_ALL_FEEDBACKS_SUCESS = "GET_ALL_FEEDBACKS_SUCESS";
 export const GET_ALL_FEEDBACKS_FAIL = "GET_ALL_FEEDBACKS_FAIL";
 
-export const getAllFeedbacks = (token) => {
+export const getAllFeedbacks = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_FEEDBACKS_LOADING });
     axios
-      .get("https://nsbmproject.radikadilanka.com:5000/feedback/get-all", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      })
+      .get("https://nsbmproject.radikadilanka.com:5000/feedback/get-all")
       .then((response) => {
         console.log(response.data);
         dispatch({
