@@ -17,6 +17,8 @@ export default function CatergoryAdd() {
     (store) => store.catergoryReducer
   );
 
+  const { token } = useSelector((store) => store.employeeReducer);
+
   const handleAddNewUser = () => {
     setOpen(true);
     dispatch(
@@ -31,7 +33,7 @@ export default function CatergoryAdd() {
 
   const handleClick = () => {
     handleClose();
-    dispatch(createCatergory(userSelectedCatergory));
+    dispatch(createCatergory(userSelectedCatergory, token));
   };
 
   return (

@@ -79,13 +79,21 @@ export const clearCatergoryLoadingStatus = () => {
   };
 };
 
-export const createCatergory = (catergory) => {
+export const createCatergory = (catergory, token) => {
   return (dispatch) => {
     dispatch({ type: CREATE_CATERGORY_START });
     axios
-      .post("https://nsbmproject.radikadilanka.com:5000/foodcatergory/create", {
-        catergory,
-      })
+      .post(
+        "https://nsbmproject.radikadilanka.com:5000/foodcatergory/create",
+        {
+          catergory,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         dispatch({
