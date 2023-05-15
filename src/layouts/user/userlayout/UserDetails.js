@@ -29,7 +29,7 @@ export default function UserDetails() {
     if (userSelectedEmployee._id) {
       dispatch(updateEmployee(userSelectedEmployee, token));
     } else {
-      dispatch(createEmployee(userSelectedEmployee));
+      dispatch(createEmployee(userSelectedEmployee, token));
     }
   };
 

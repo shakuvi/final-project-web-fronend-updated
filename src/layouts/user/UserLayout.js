@@ -70,6 +70,9 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
               <TableCell style={{ fontWeight: "bold" }}>
                 Date of birth
               </TableCell>
+              <TableCell style={{ fontWeight: "bold" }}>
+                Employee Type
+              </TableCell>
               <TableCell style={{ fontWeight: "bold" }}>Action</TableCell>
             </TableRow>
           </TableHead>
@@ -81,6 +84,7 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
                 <TableCell>{val.email}</TableCell>
                 <TableCell>{val.mobileNumber}</TableCell>
                 <TableCell>{val.dateOfBirth}</TableCell>
+                <TableCell>{val.employeeType.employeeType}</TableCell>
                 <TableCell>
                   <Grid container justifyContent="space-around">
                     <Grid item>
