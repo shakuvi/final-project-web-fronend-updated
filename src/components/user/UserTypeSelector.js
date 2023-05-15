@@ -4,11 +4,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 
-export default function UserTypeSelector() {
+export default function UserTypeSelector({ handleUserChange }) {
   const [selectedUser, setSelectedUser] = React.useState("");
 
   const handleChange = (event) => {
     setSelectedUser(event.target.value);
+    handleUserChange(event.target.value, "employeeType");
   };
 
   const { allEmployeeTypes } = useSelector(

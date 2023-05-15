@@ -93,7 +93,7 @@ export default function UserDetailsAdd() {
             handleChange={handleUserChange}
             name="dateOfBirth"
           />
-          <UserTypeSelector />
+          <UserTypeSelector handleUserChange={handleUserChange} />
         </Grid>
       </Grid>
       <div style={{ paddingTop: 20 }}>
