@@ -16,6 +16,8 @@ import UserDetails from "./userlayout/UserDetails";
 import {
   clearCreateEmployeeLoadingStatus,
   setUserSelectedEmployee,
+  userEditFalse,
+  userEditTrue,
 } from "../../store/actions/employeeAction";
 import { useDispatch } from "react-redux";
 
@@ -25,12 +27,14 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
 
   const handleClickOpen = (employee) => {
     setOpen(true);
+    dispatch(userEditFalse());
     dispatch(setUserSelectedEmployee(employee));
     dispatch(clearCreateEmployeeLoadingStatus());
   };
 
   const handleAddNewUser = () => {
     setOpen(true);
+    dispatch(userEditTrue());
     dispatch(
       setUserSelectedEmployee({
         userName: "",
@@ -38,6 +42,7 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
         email: "",
         password: "",
         dateOfBirth: "",
+        employeeType: "",
       })
     );
     dispatch(clearCreateEmployeeLoadingStatus());

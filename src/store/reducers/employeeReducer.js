@@ -10,6 +10,7 @@ const inisialState = {
   token: "",
   employee: {},
   loginErroeMessage: "",
+  employeeEdit: false,
 };
 
 const employeeReducer = (state = inisialState, action) => {
@@ -63,6 +64,12 @@ const employeeReducer = (state = inisialState, action) => {
         employeeLoginLoadingStatus: "fail",
         loginErroeMessage: action.payload,
       };
+
+    case Actions.USER_EDIT_STATUS_TRUE:
+      return { ...state, employeeEdit: true };
+
+    case Actions.USER_EDIT_STATUS_FALSE:
+      return { ...state, employeeEdit: false };
 
     default:
       return state;

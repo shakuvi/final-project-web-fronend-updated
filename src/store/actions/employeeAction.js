@@ -24,6 +24,10 @@ export const EMPOLYEE_LOGIN_START = "EMPOLYEE_LOGIN_START";
 export const EMPOLYEE_LOGIN_SUCCESS = "EMPOLYEE_LOGIN_SUCCESS";
 export const EMPOLYEE_LOGIN_FAIL = "EMPOLYEE_LOGIN_FAIL";
 
+export const USER_EDIT_STATUS_TRUE = "USER_EDIT_STATUS_TRUE";
+
+export const USER_EDIT_STATUS_FALSE = "USER_EDIT_STATUS_FALSE";
+
 export const getAllEmployees = (token) => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_EMPLOYEES_LOADING });
@@ -145,5 +149,17 @@ export const employeeLogin = (email, password) => {
           payload: e.response.data.message,
         });
       });
+  };
+};
+
+export const userEditTrue = () => {
+  return (dispatch) => {
+    dispatch({ type: USER_EDIT_STATUS_TRUE });
+  };
+};
+
+export const userEditFalse = () => {
+  return (dispatch) => {
+    dispatch({ type: USER_EDIT_STATUS_FALSE });
   };
 };

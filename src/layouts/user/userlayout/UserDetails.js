@@ -11,9 +11,11 @@ import {
 
 export default function UserDetails() {
   const dispatch = useDispatch();
-  const { userSelectedEmployee, token } = useSelector(
+  const { userSelectedEmployee, token, employeeEdit } = useSelector(
     (store) => store.employeeReducer
   );
+
+  console.log(employeeEdit);
 
   const handleUserChange = (value, name) => {
     dispatch(
