@@ -21,6 +21,7 @@ import {
 } from "../../store/actions/employeeAction";
 import { useDispatch, useSelector } from "react-redux";
 import UserDetailsAdd from "./userlayout/UserDetailsAdd";
+import { getAllEmployeeTypes } from "../../store/actions/employeeTypeAction";
 
 export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
       })
     );
     dispatch(clearCreateEmployeeLoadingStatus());
+    dispatch(getAllEmployeeTypes());
   };
 
   const handleClose = () => {

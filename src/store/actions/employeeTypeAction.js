@@ -8,7 +8,7 @@ export const getAllEmployeeTypes = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_EMPLYEE_TYPES_LOADING });
     axios
-      .get("http://localhost:5000/emptype/get-all")
+      .get("https://nsbmproject.radikadilanka.com:5000/emptype/get-all")
       .then((response) => {
         console.log(response.data);
         dispatch({
