@@ -1,30 +1,25 @@
-import { MenuItem, Select, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import Typography from "@mui/material/Typography";
 
 export default function UserTypeSelector() {
-  const [seletectedUser, setSelectedUser] = React.useState("");
+  const [selectedUser, setSelectedUser] = React.useState("");
 
   const handleChange = (event) => {
     setSelectedUser(event.target.value);
-    // handleChange(event.target.value, "category");
   };
 
   const { allEmployeeTypes } = useSelector(
     (store) => store.employeeTypeReducer
   );
-  console.log(allEmployeeTypes);
-
-  useEffect(() => {
-    if (allEmployeeTypes.length > 0) {
-      setSelectedUser(allEmployeeTypes[0]._id);
-    }
-  }, [allEmployeeTypes.length]);
 
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
       <Typography>Select Category</Typography>
       <Select
+        value={selectedUser}
         onChange={handleChange}
         sx={{
           width: "300px",
