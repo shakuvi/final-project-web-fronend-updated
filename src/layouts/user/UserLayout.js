@@ -19,11 +19,16 @@ import {
   userEditFalse,
   userEditTrue,
 } from "../../store/actions/employeeAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import UserDetailsAdd from "./userlayout/UserDetailsAdd";
 
 export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
+
+  const { employeeEdit } = useSelector((store) => store.employeeReducer);
+
+  console.log(employeeEdit);
 
   const handleClickOpen = (employee) => {
     setOpen(true);
@@ -128,7 +133,13 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
           },
         }}
       >
-        <UserDetails />
+        {employeeEdit === true ? (
+          <UserDetailsAdd />
+        ) : employeeEdit === false ? (
+          <UserDetails />
+        ) : (
+          ""
+        )}
       </Dialog>
     </div>
   );

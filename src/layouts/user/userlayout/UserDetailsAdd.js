@@ -1,15 +1,16 @@
-import { Avatar, Grid, Typography } from "@mui/material";
 import React from "react";
-import UserInputBoxWithLabel from "../../../components/user/UserInputBoxWithLabel";
-import UserAddButton from "../../../components/user/UserAddButton";
 import { useDispatch, useSelector } from "react-redux";
 import {
   createEmployee,
   setUserSelectedEmployee,
   updateEmployee,
 } from "../../../store/actions/employeeAction";
+import { Avatar, Grid, Typography } from "@mui/material";
+import UserInputBoxWithLabel from "../../../components/user/UserInputBoxWithLabel";
+import UserAddButton from "../../../components/user/UserAddButton";
+import UserTypeSelector from "../../../components/user/UserTypeSelector";
 
-export default function UserDetails() {
+export default function UserDetailsAdd() {
   const dispatch = useDispatch();
   const { userSelectedEmployee, token } = useSelector(
     (store) => store.employeeReducer
@@ -92,11 +93,12 @@ export default function UserDetails() {
             handleChange={handleUserChange}
             name="dateOfBirth"
           />
-          <div style={{ paddingTop: 30 }}>
-            <UserAddButton handleClick={handleClick} />
-          </div>
+          <UserTypeSelector />
         </Grid>
       </Grid>
+      <div style={{ paddingTop: 20 }}>
+        <UserAddButton handleClick={handleClick} />
+      </div>
     </div>
   );
 }

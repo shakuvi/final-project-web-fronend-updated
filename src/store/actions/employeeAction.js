@@ -93,6 +93,7 @@ export const clearEmployeeLoadingStatus = () => {
 };
 
 export const createEmployee = (employee, token) => {
+  console.log(employee);
   return (dispatch) => {
     dispatch({ type: CREATE_EMPLOYEE_START });
     axios
