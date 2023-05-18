@@ -14,7 +14,7 @@ export const getAllOrders = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_ORDERS_LOADING });
     axios
-      .get("https://nsbmproject.radikadilanka.com:5000/order/get-all")
+      .get("https://plymouthfinal.live:5000/order/get-all")
       .then((response) => {
         console.log(response.data);
         dispatch({
@@ -33,7 +33,7 @@ export const updateOrderStatus = (id, status) => {
   return (dispatch) => {
     dispatch({ type: UPDATE_ORDER_STATUS_LOADING });
     axios
-      .post("https://nsbmproject.radikadilanka.com:5000/order/update", {
+      .post("https://plymouthfinal.live:5000/order/update", {
         id,
         status,
       })

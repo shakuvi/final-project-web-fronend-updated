@@ -8,7 +8,7 @@ export const getAllFeedbacks = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_FEEDBACKS_LOADING });
     axios
-      .get("https://nsbmproject.radikadilanka.com:5000/feedback/get-all")
+      .get("https://plymouthfinal.live:5000/feedback/get-all")
       .then((response) => {
         console.log(response.data);
         dispatch({

@@ -23,7 +23,7 @@ export const getAllCatergories = () => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_CATEGORIES_LOADING });
     axios
-      .get("https://nsbmproject.radikadilanka.com:5000/foodcatergory/get-all")
+      .get("https://plymouthfinal.live:5000/foodcatergory/get-all")
       .then((response) => {
         console.log(response.data);
         dispatch({
@@ -49,7 +49,7 @@ export const updateCatergory = (catergory, token) => {
     dispatch({ type: UPDATE_CATERGORY_START });
     axios
       .post(
-        "https://nsbmproject.radikadilanka.com:5000/foodcatergory/update",
+        "https://plymouthfinal.live:5000/foodcatergory/update",
         {
           catergory,
         },
@@ -84,7 +84,7 @@ export const createCatergory = (catergory, token) => {
     dispatch({ type: CREATE_CATERGORY_START });
     axios
       .post(
-        "https://nsbmproject.radikadilanka.com:5000/foodcatergory/create",
+        "https://plymouthfinal.live:5000/foodcatergory/create",
         {
           catergory,
         },

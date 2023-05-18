@@ -48,7 +48,7 @@ export const updateFood = (food, token) => {
     dispatch({ type: UPDATE_FOOD_START });
     axios
       .post(
-        "https://nsbmproject.radikadilanka.com:5000/food/update",
+        "https://plymouthfinal.live:5000/food/update",
         {
           food,
         },

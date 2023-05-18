@@ -32,7 +32,7 @@ export const getAllEmployees = (token) => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_EMPLOYEES_LOADING });
     axios
-      .get("https://nsbmproject.radikadilanka.com:5000/employee/get-all", {
+      .get("https://plymouthfinal.live:5000/employee/get-all", {
         headers: {
           Authorization: "Bearer " + token,
         },
@@ -62,7 +62,7 @@ export const updateEmployee = (employee, token) => {
     dispatch({ type: UPDATE_EMPLOYEE_START });
     axios
       .post(
-        "https://nsbmproject.radikadilanka.com:5000/employee/update",
+        "https://plymouthfinal.live:5000/employee/update",
         {
           employee,
         },
@@ -98,7 +98,7 @@ export const createEmployee = (employee, token) => {
     dispatch({ type: CREATE_EMPLOYEE_START });
     axios
       .post(
-        "https://nsbmproject.radikadilanka.com:5000/employee/create",
+        "https://plymouthfinal.live:5000/employee/create",
         {
           employee,
         },
@@ -132,7 +132,7 @@ export const employeeLogin = (email, password) => {
   return (dispatch) => {
     dispatch({ type: EMPOLYEE_LOGIN_START });
     axios
-      .post("https://nsbmproject.radikadilanka.com:5000/employee/sign-in", {
+      .post("https://plymouthfinal.live:5000/employee/sign-in", {
         email,
         password,
       })

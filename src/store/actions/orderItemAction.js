@@ -8,12 +8,9 @@ export const getAllOrdersByOrderId = (orderId) => {
   return (dispatch) => {
     dispatch({ type: GET_ALL_ORDERS_BY_ID_LOADING });
     axios
-      .post(
-        "https://nsbmproject.radikadilanka.com:5000/orderitems/get-all-by-order-id",
-        {
-          orderId,
-        }
-      )
+      .post("https://plymouthfinal.live:5000/orderitems/get-all-by-order-id", {
+        orderId,
+      })
       .then((response) => {
         console.log(response.data);
         dispatch({

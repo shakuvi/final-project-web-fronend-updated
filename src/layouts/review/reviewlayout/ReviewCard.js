@@ -40,7 +40,7 @@ export default function ReviewCard({ val }) {
         <Grid item xs={2}>
           <Avatar
             alt="Remy Sharp"
-            src="/static/images/avatar/1.jpg"
+            src="https://img4.goodfon.com/wallpaper/nbig/3/25/vkusniashki-lavash-salat-miaso-tykva-raznosti-eda.jpg"
             sx={{ width: 56, height: 56 }}
           />
         </Grid>
