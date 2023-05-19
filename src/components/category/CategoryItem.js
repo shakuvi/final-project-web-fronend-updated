@@ -38,7 +38,7 @@ export default function CategoryItem({
         <img
           alt=""
           width="100px"
-          src="https://img.freepik.com/premium-vector/chef-icon-with-tray-food-hand_602006-191.jpg?w=2000"
+          src="https://previews.123rf.com/images/elnur/elnur1112/elnur111202053/11571858-circle-with-lots-of-food-items.jpg"
         />
         <Typography>{name}</Typography>
       </div>
