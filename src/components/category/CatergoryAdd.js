@@ -64,7 +64,7 @@ export default function CatergoryAdd() {
         onClick={handleAddNewUser}
       >
         <AddIcon sx={{ fontSize: 70 }} />
-        <Typography>Add</Typography>
+        <Typography sx={{ fontFamily: "Poppins" }}>Add</Typography>
       </div>
       <Dialog
         open={open}

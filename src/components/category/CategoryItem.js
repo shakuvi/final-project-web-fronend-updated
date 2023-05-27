@@ -40,7 +40,7 @@ export default function CategoryItem({
           width="100px"
           src="https://previews.123rf.com/images/elnur/elnur1112/elnur111202053/11571858-circle-with-lots-of-food-items.jpg"
         />
-        <Typography>{name}</Typography>
+        <Typography sx={{ fontFamily: "Poppins" }}>{name}</Typography>
       </div>
       {isEditVisible ? (
         <CatergoryEditItem

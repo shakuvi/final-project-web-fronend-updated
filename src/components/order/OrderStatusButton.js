@@ -20,6 +20,7 @@ export default function OrderStatusButton({
         style={{
           backgroundColor: isActive ? backgroundColor : "white",
           color: color,
+          fontFamily: "Poppins",
         }}
       >
         {name}

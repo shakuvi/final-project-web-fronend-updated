@@ -73,29 +73,45 @@ export default function UserLayout({ info: rows, handleClearLoadingStatus }) {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell style={{ fontWeight: "bold" }}>ID</TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>Name</TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>Email</TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
+                ID
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
+                Name
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
+                Email
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
                 Mobile Number
               </TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
                 Date of birth
               </TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
                 Employee Type
               </TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>Action</TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
+                Action
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((val, key) => (
               <TableRow key={key}>
-                <TableCell>{val._id}</TableCell>
-                <TableCell>{val.firstName + " " + val.lastName}</TableCell>
-                <TableCell>{val.email}</TableCell>
-                <TableCell>{val.mobileNumber}</TableCell>
-                <TableCell>{val.dateOfBirth}</TableCell>
+                <TableCell sx={{ fontFamily: "Poppins" }}>{val._id}</TableCell>
+                <TableCell sx={{ fontFamily: "Poppins" }}>
+                  {val.firstName + " " + val.lastName}
+                </TableCell>
+                <TableCell sx={{ fontFamily: "Poppins" }}>
+                  {val.email}
+                </TableCell>
+                <TableCell sx={{ fontFamily: "Poppins" }}>
+                  {val.mobileNumber}
+                </TableCell>
+                <TableCell sx={{ fontFamily: "Poppins" }}>
+                  {val.dateOfBirth}
+                </TableCell>
                 <TableCell>{val.employeeType.employeeType}</TableCell>
                 <TableCell>
                   <Grid container justifyContent="space-around">

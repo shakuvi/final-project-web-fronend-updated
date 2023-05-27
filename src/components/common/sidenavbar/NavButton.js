@@ -15,6 +15,7 @@ export default function NavButton({ title, image, isActive }) {
         justifyContent: "left",
         paddingLeft: "50px",
         pointerEvents: isActive ? "none" : "auto",
+        fontFamily: "Poppins", // Add the fontFamily property
       }}
     >
       {title}

@@ -36,12 +36,24 @@ export default function OrderLayout({
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell style={{ fontWeight: "bold" }}>Order ID</TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>Date</TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>Time</TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>Order Type</TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>Item Count</TableCell>
-              <TableCell style={{ fontWeight: "bold" }}>Status</TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
+                Order ID
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
+                Date
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
+                Time
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
+                Order Type
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
+                Item Count
+              </TableCell>
+              <TableCell sx={{ fontWeight: "bold", fontFamily: "Poppins" }}>
+                Status
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -61,30 +73,51 @@ export default function OrderLayout({
                 }
               >
                 <TableCell
-                  style={selectedRow === val ? { color: "white" } : {}}
+                  style={
+                    selectedRow === val
+                      ? { color: "white", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                 >
                   {val._id}
                 </TableCell>
                 <TableCell
-                  style={selectedRow === val ? { color: "white" } : {}}
+                  style={
+                    selectedRow === val
+                      ? { color: "white", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                 >
                   {val.createDate}
                 </TableCell>
                 <TableCell
-                  style={selectedRow === val ? { color: "white" } : {}}
+                  style={
+                    selectedRow === val
+                      ? { color: "white", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                 >
                   {val.createTime}
                 </TableCell>
                 <TableCell
-                  style={selectedRow === val ? { color: "white" } : {}}
+                  style={
+                    selectedRow === val
+                      ? { color: "white", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                 >
                   {val.orderType.orderType}
                 </TableCell>
                 <TableCell
-                  style={selectedRow === val ? { color: "white" } : {}}
+                  style={
+                    selectedRow === val
+                      ? { color: "white", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                 >
                   02
                 </TableCell>
+
                 <TableCell>
                   {val.status === "pending" ? (
                     <OrderStatusButton

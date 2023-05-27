@@ -10,12 +10,17 @@ export default function CatergoryInputBoxWithLabel({
 }) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
-      <Typography>{fieldname}</Typography>
+      <Typography sx={{ fontFamily: "Poppins" }}>{fieldname}</Typography>
       <TextField
         value={value}
         onChange={(e) => handleChange(e.target.value, name)}
         multiline={true} // add multiline prop
         rows={rows} // set number of rows
+        inputProps={{
+          style: {
+            fontFamily: "Poppins", // Add fontFamily property for the text value
+          },
+        }}
         sx={{
           width: "400px",
           border: "none",

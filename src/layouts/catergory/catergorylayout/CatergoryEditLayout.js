@@ -30,7 +30,7 @@ export default function CatergoryEditLayout({ handleClick }) {
         flexDirection: "column",
       }}
     >
-      <Typography>Catergory Edit</Typography>
+      <Typography sx={{ fontFamily: "Poppins" }}>Catergory Edit</Typography>
       <img
         alt=""
         width="100px"

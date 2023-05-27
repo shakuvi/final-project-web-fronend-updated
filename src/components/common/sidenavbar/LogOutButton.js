@@ -14,6 +14,7 @@ export default function LogOutButton() {
           padding: 1,
           color: "#FD5C25",
           border: "1px solid #FD5C25",
+          fontFamily: "Poppins",
         }}
       >
         Log Out

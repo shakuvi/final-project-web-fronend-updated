@@ -45,7 +45,9 @@ export default function ReviewCard({ val }) {
           />
         </Grid>
         <Grid item xs={9}>
-          <Typography align="justify">{val.feedbackdetils}</Typography>
+          <Typography align="justify" sx={{ fontFamily: "Poppins" }}>
+            {val.feedbackdetils}
+          </Typography>
         </Grid>
       </Grid>
     </div>

@@ -15,7 +15,9 @@ export default function HomeHeaderWithUserDetails({
   return (
     <Grid container alignItems="center" pl={1} pt={1}>
       <Grid item xs={6}>
-        <Typography sx={{ color: "#FD5C25" }}>{label}</Typography>
+        <Typography sx={{ color: "#FD5C25", fontFamily: "Poppins" }}>
+          {label}
+        </Typography>
       </Grid>
       <Grid item xs={6}>
         <Grid container alignItems="center" justifyContent="flex-end">
