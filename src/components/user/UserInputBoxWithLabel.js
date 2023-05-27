@@ -6,11 +6,13 @@ export default function UserInputBoxWithLabel({
   value,
   handleChange,
   name,
+  password,
 }) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
       <Typography sx={{ fontFamily: "Poppins" }}>{fieldname}</Typography>
       <TextField
+        type={password}
         value={value}
         onChange={(e) => handleChange(e.target.value, name)}
         sx={{

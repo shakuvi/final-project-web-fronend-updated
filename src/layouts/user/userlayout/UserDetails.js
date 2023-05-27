@@ -83,6 +83,7 @@ export default function UserDetails() {
             name="lastName"
           />
           <UserInputBoxWithLabel
+            password="password"
             fieldname="Password"
             value={userSelectedEmployee.password}
             handleChange={handleUserChange}

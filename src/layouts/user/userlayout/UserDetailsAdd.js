@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   createEmployee,
@@ -16,6 +16,8 @@ export default function UserDetailsAdd() {
     (store) => store.employeeReducer
   );
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleUserChange = (value, name) => {
     dispatch(
       setUserSelectedEmployee({ ...userSelectedEmployee, [name]: value })
@@ -26,7 +28,21 @@ export default function UserDetailsAdd() {
   };
 
   const handleClick = () => {
-    console.log(userSelectedEmployee);
+    if (
+      !userSelectedEmployee.firstName ||
+      !userSelectedEmployee.userName ||
+      !userSelectedEmployee.mobileNumber ||
+      !userSelectedEmployee.email ||
+      !userSelectedEmployee.lastName ||
+      !userSelectedEmployee.password ||
+      !userSelectedEmployee.dateOfBirth
+    ) {
+      setErrorMessage("Text fields cannot be null.");
+      return;
+    }
+
+    setErrorMessage("");
+
     if (userSelectedEmployee._id) {
       dispatch(updateEmployee(userSelectedEmployee, token));
     } else {
@@ -34,7 +50,6 @@ export default function UserDetailsAdd() {
     }
   };
 
-  console.log(userSelectedEmployee);
   return (
     <div style={{ textAlign: "center" }}>
       <Typography sx={{ color: "#FD5C25", fontFamily: "Poppins" }}>
@@ -84,6 +99,7 @@ export default function UserDetailsAdd() {
             name="lastName"
           />
           <UserInputBoxWithLabel
+            password="password"
             fieldname="Password"
             value={userSelectedEmployee.password}
             handleChange={handleUserChange}
@@ -98,6 +114,7 @@ export default function UserDetailsAdd() {
           <UserTypeSelector handleUserChange={handleUserChange} />
         </Grid>
       </Grid>
+      <Typography>{errorMessage ? errorMessage : ""}</Typography>
       <div style={{ paddingTop: 20 }}>
         <UserAddButton handleClick={handleClick} />
       </div>
