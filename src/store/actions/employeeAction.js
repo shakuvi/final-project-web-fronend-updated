@@ -98,7 +98,7 @@ export const createEmployee = (employee, token) => {
     dispatch({ type: CREATE_EMPLOYEE_START });
     axios
       .post(
-        "https://plymouthfinal.live:5000/employee/create",
+        "http://localhost:5000/employee/create",
         {
           employee,
         },
@@ -132,7 +132,7 @@ export const employeeLogin = (email, password) => {
   return (dispatch) => {
     dispatch({ type: EMPOLYEE_LOGIN_START });
     axios
-      .post("https://plymouthfinal.live:5000/employee/sign-in", {
+      .post("http://localhost:5000/employee/sign-in", {
         email,
         password,
       })

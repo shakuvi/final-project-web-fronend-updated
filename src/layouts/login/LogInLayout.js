@@ -47,7 +47,7 @@ export default function LogInLayout() {
       }}
     >
       <Typography
-        sx={{ fontFamily: "Poppins", fontSize: 40, color: "#595959" }}
+        sx={{ fontFamily: "Poppins", fontSize: 30, color: "#595959" }}
       >
         LOG IN
       </Typography>
