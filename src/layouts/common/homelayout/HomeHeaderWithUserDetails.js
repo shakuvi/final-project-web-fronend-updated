@@ -38,7 +38,9 @@ export default function HomeHeaderWithUserDetails({
             <Avatar>R</Avatar>
           </Grid>
           <Grid item xs={2}>
-            <Typography>{employee.userName}</Typography>
+            <Typography sx={{ fontFamily: "Poppins" }}>
+              {employee.userName}
+            </Typography>
           </Grid>
         </Grid>
       </Grid>

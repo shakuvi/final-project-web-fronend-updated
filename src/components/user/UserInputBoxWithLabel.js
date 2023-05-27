@@ -9,7 +9,7 @@ export default function UserInputBoxWithLabel({
 }) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
-      <Typography>{fieldname}</Typography>
+      <Typography sx={{ fontFamily: "Poppins" }}>{fieldname}</Typography>
       <TextField
         value={value}
         onChange={(e) => handleChange(e.target.value, name)}
@@ -32,6 +32,9 @@ export default function UserInputBoxWithLabel({
             },
             "&.Mui-error fieldset": {
               borderColor: "#f44336",
+            },
+            "& input": {
+              fontFamily: "Poppins", // Add fontFamily property for the text value
             },
           },
         }}

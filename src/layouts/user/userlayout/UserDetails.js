@@ -36,7 +36,9 @@ export default function UserDetails() {
   console.log(userSelectedEmployee);
   return (
     <div style={{ textAlign: "center" }}>
-      <Typography sx={{ color: "#FD5C25" }}>Add User</Typography>
+      <Typography sx={{ color: "#FD5C25", fontFamily: "Poppins" }}>
+        Edit User
+      </Typography>
       <div
         style={{ display: "flex", justifyContent: "center", paddingTop: 30 }}
       >

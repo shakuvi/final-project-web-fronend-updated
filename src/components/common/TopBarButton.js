@@ -9,6 +9,7 @@ export default function TopBarButton({ buttonName, handleClickOpen }) {
         sx={{
           textTransform: "none",
           width: 200,
+          fontFamily: "Poppins",
         }}
         style={{ background: "linear-gradient(to right, #FE6329, #FDBB29)" }}
         onClick={handleClickOpen}

@@ -10,6 +10,7 @@ export default function UserAddButton({ handleClick }) {
         sx={{
           textTransform: "none",
           width: 200,
+          fontFamily: "Poppins",
         }}
         style={{ background: "linear-gradient(to right, #FE6329, #FDBB29)" }}
       >
