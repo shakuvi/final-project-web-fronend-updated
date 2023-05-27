@@ -6,16 +6,21 @@ export default function InputBoxWithTopLabel({
   placeholder,
   handleChange,
   name,
-  password
+  password,
 }) {
   return (
     <div style={{ textAlign: "left" }}>
-      <Typography>{label}</Typography>
+      <Typography style={{ fontFamily: "Poppins" }}>{label}</Typography>
       <TextField
-        type="password"
+        type={password}
         onChange={(e) => handleChange(e.target.value, name)}
         fullWidth
         placeholder={placeholder}
+        InputProps={{
+          style: {
+            fontFamily: "Poppins",
+          },
+        }}
         sx={{
           border: "none",
           boxShadow: "none",

@@ -46,7 +46,11 @@ export default function LogInLayout() {
         width: "30%",
       }}
     >
-      <Typography>Log In</Typography>
+      <Typography
+        sx={{ fontFamily: "Poppins", fontSize: 40, color: "#595959" }}
+      >
+        LOG IN
+      </Typography>
 
       <div style={{ paddingTop: 10 }}>
         <InputBoxWithTopLabel
@@ -63,11 +67,16 @@ export default function LogInLayout() {
           handleChange={setPassword}
         />
       </div>
-      {employeeLoginLoadingStatus === "fail" ? (
-        <Typography>User name or password Incorrect</Typography>
-      ) : (
-        ""
-      )}
+      <div style={{ paddingTop: 12 }}>
+        {employeeLoginLoadingStatus === "fail" ? (
+          <Typography sx={{ fontFamily: "Poppins", color: "#c62828" }}>
+            User name or password Incorrect
+          </Typography>
+        ) : (
+          ""
+        )}
+      </div>
+
       <div style={{ paddingTop: 25 }}>
         <LoginButton handleSignIn={handleSignIn} />
       </div>
