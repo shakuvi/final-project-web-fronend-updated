@@ -57,11 +57,17 @@ export default function LogInLayout() {
       </div>
       <div style={{ paddingTop: 10 }}>
         <InputBoxWithTopLabel
+          password="password"
           label="Password"
           placeholder="Enter your password"
           handleChange={setPassword}
         />
       </div>
+      {employeeLoginLoadingStatus === "fail" ? (
+        <Typography>User name or password Incorrect</Typography>
+      ) : (
+        ""
+      )}
       <div style={{ paddingTop: 25 }}>
         <LoginButton handleSignIn={handleSignIn} />
       </div>

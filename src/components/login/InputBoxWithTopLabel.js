@@ -6,11 +6,13 @@ export default function InputBoxWithTopLabel({
   placeholder,
   handleChange,
   name,
+  password
 }) {
   return (
     <div style={{ textAlign: "left" }}>
       <Typography>{label}</Typography>
       <TextField
+        type="password"
         onChange={(e) => handleChange(e.target.value, name)}
         fullWidth
         placeholder={placeholder}
