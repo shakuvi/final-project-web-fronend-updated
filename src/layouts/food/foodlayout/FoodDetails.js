@@ -10,7 +10,9 @@ export default function FoodDetails({ handleFoodChange, handleSaveUpate }) {
   console.log(employeeSelectedFood);
   return (
     <div style={{ textAlign: "center" }}>
-      <Typography sx={{ color: "#FD5C25" }}>Add Food</Typography>
+      <Typography sx={{ color: "#FD5C25", fontFamily: "Poppins" }}>
+        Add Food
+      </Typography>
       <div
         style={{ display: "flex", justifyContent: "center", paddingTop: 30 }}
       >

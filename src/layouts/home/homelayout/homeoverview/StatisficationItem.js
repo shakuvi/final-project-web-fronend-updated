@@ -17,8 +17,8 @@ export default function StatisficationItem({ info }) {
       >
         <Grid item>{info.icon}</Grid>
         <Grid item>
-          <Typography>{info.label}</Typography>
-          <Typography>{info.value}</Typography>
+          <Typography sx={{ fontFamily: "Poppins" }}>{info.label}</Typography>
+          <Typography sx={{ fontFamily: "Poppins" }}>{info.value}</Typography>
         </Grid>
       </Grid>
     </div>

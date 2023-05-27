@@ -10,7 +10,7 @@ export default function FoodInputBoxWithLabel({
 }) {
   return (
     <div style={{ textAlign: "left", paddingTop: 20 }}>
-      <Typography>{fieldName}</Typography>
+      <Typography sx={{ fontFamily: "Poppins" }}>{fieldName}</Typography>
       <TextField
         value={value}
         onChange={(e) => handleFoodChange(e.target.value, name)}
@@ -35,6 +35,9 @@ export default function FoodInputBoxWithLabel({
             },
             "&.Mui-error fieldset": {
               borderColor: "#f44336",
+            },
+            "& input": {
+              fontFamily: "Poppins", // Add fontFamily property for the input value
             },
           },
         }}

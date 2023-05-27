@@ -96,13 +96,31 @@ export default function CatergoryFoods() {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell style={{ fontWeight: "bold" }}>Name</TableCell>
-                <TableCell style={{ fontWeight: "bold" }}>Price</TableCell>
-                <TableCell style={{ fontWeight: "bold" }}>
+                <TableCell
+                  style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                >
+                  Name
+                </TableCell>
+                <TableCell
+                  style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                >
+                  Price
+                </TableCell>
+                <TableCell
+                  style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                >
                   Description
                 </TableCell>
-                <TableCell style={{ fontWeight: "bold" }}>Image</TableCell>
-                <TableCell style={{ fontWeight: "bold" }}>Action</TableCell>
+                <TableCell
+                  style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                >
+                  Image
+                </TableCell>
+                <TableCell
+                  style={{ fontWeight: "bold", fontFamily: "Poppins" }}
+                >
+                  Action
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -114,10 +132,18 @@ export default function CatergoryFoods() {
                 : allFoodList
               ).map((val, key) => (
                 <TableRow key={key}>
-                  <TableCell>{val.name}</TableCell>
-                  <TableCell>{val.price}</TableCell>
-                  <TableCell>{val.description}</TableCell>
-                  <TableCell>{val.image}</TableCell>
+                  <TableCell sx={{ fontFamily: "Poppins" }}>
+                    {val.name}
+                  </TableCell>
+                  <TableCell sx={{ fontFamily: "Poppins" }}>
+                    {val.price}
+                  </TableCell>
+                  <TableCell sx={{ fontFamily: "Poppins" }}>
+                    {val.description}
+                  </TableCell>
+                  <TableCell sx={{ fontFamily: "Poppins" }}>
+                    {val.image}
+                  </TableCell>
                   <TableCell>
                     <Grid container justifyContent="space-around">
                       <Grid item>

@@ -7,7 +7,7 @@ export default function HomeSubHeader({ info }) {
     <div>
       <Grid container justifyContent="space-between" pt={2}>
         <Grid item pl={1} sx={{ color: "#FD5C25" }}>
-          <Typography>{info.name}</Typography>
+          <Typography sx={{ fontFamily: "Poppins" }}>{info.name}</Typography>
         </Grid>
         <Grid item pr={10}>
           <NavLink style={{ textDecoration: "none" }} to={`/${info.route}`}>
