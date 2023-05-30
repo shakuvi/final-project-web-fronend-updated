@@ -6,7 +6,7 @@ export default function LogOutButton() {
   return (
     <div>
       <Button
-        href="/"
+        href="/bestfood/"
         endIcon={<LogoutIcon />}
         sx={{
           width: "80%",

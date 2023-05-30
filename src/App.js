@@ -15,7 +15,7 @@ function App() {
   // const { employee } = useSelector((store) => store.employeeReducer);
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/bestfood/">
         <Routes>
           <Route index element={<LogInPage />} />
           <Route path="/home" element={<HomePage />} />
