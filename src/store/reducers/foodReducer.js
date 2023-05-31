@@ -5,6 +5,7 @@ const inisialState = {
   allFoodList: [],
   employeeSelectedFood: {},
   foodUpdateLoadingStatus: "notStarted",
+  foodCreateLoadingStatus: "notStarted",
 };
 
 const foodReducer = (state = inisialState, action) => {
@@ -35,6 +36,9 @@ const foodReducer = (state = inisialState, action) => {
 
     case Actions.CLEAR_UPDATE_FOOD_LOADING_STATUS:
       return { ...state, foodUpdateLoadingStatus: "notStarted" };
+
+    case Actions.CRETE_FOOD_SUCCESS:
+      return { ...state, foodCreateLoadingStatus: "completed" };
 
     default:
       return state;

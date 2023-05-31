@@ -6,7 +6,7 @@ export default function LogOutButton() {
   return (
     <div>
       <Button
-        href="/bestfood/"
+        href="https://plymouthfinal.live/bestfood/"
         endIcon={<LogoutIcon />}
         sx={{
           width: "80%",

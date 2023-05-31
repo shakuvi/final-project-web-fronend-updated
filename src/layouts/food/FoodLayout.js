@@ -6,7 +6,10 @@ import CategoryItem from "../../components/category/CategoryItem";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserSelectedCatergory } from "../../store/actions/categoryAction";
-import { setEmployeeSelectedFood } from "../../store/actions/foodAction";
+import {
+  createFood,
+  setEmployeeSelectedFood,
+} from "../../store/actions/foodAction";
 
 export default function FoodLayout({ allCatergoryList }) {
   const navigate = useNavigate();
@@ -27,6 +30,8 @@ export default function FoodLayout({ allCatergoryList }) {
 
   const { employeeSelectedFood } = useSelector((store) => store.foodReducer);
 
+  const { token } = useSelector((store) => store.employeeReducer);
+
   console.log(employeeSelectedFood);
 
   const handleFoodChange = (value, name) => {
@@ -35,6 +40,11 @@ export default function FoodLayout({ allCatergoryList }) {
     );
     console.log(name);
     console.log(value);
+  };
+
+  const handleSaveUpate = () => {
+    dispatch(createFood(employeeSelectedFood, token));
+    handleClose();
   };
 
   const handleClose = () => {
@@ -87,7 +97,10 @@ export default function FoodLayout({ allCatergoryList }) {
             style={{ height: "100%" }}
           >
             <Grid item>
-              <FoodDetails handleFoodChange={handleFoodChange} />
+              <FoodDetails
+                handleFoodChange={handleFoodChange}
+                handleSaveUpate={handleSaveUpate}
+              />
             </Grid>
           </Grid>
         </Dialog>

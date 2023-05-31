@@ -10,6 +10,10 @@ export const UPDATE_FOOD_START = "UPDATE_FOOD_START";
 export const UPDATE_FOOD_SUCCESS = "UPDATE_FOOD_SUCCESS";
 export const UPDATE_FOOD_FAIL = "UPDATE_FOOD_FAIL";
 
+export const CRETE_FOOD_START = "CRETE_FOOD_START";
+export const CRETE_FOOD_SUCCESS = "CRETE_FOOD_SUCCESS";
+export const CRETE_FOOD_FAIL = "CRETE_FOOD_FAIL";
+
 export const CLEAR_UPDATE_FOOD_LOADING_STATUS =
   "CLEAR_UPDATE_FOOD_LOADING_STATUS";
 
@@ -65,6 +69,36 @@ export const updateFood = (food, token) => {
       .catch((e) => {
         console.log(e);
         dispatch({ type: UPDATE_FOOD_FAIL });
+      });
+  };
+};
+
+export const createFood = (food, token) => {
+  console.log(food);
+  return (dispatch) => {
+    dispatch({ type: CRETE_FOOD_START });
+    axios
+      .post(
+        "https://plymouthfinal.live:5000/food/create",
+        {
+          food,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+        dispatch({
+          type: CRETE_FOOD_SUCCESS,
+          payload: response.data.food,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+        dispatch({ type: CRETE_FOOD_FAIL });
       });
   };
 };
